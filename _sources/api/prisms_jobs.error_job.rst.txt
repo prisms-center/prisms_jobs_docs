@@ -1,0 +1,6 @@
+prisms\_jobs\.error\_job
+========================
+
+.. currentmodule:: prisms_jobs
+
+.. autofunction:: error_job

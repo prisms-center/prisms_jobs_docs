@@ -1,0 +1,26 @@
+prisms\_jobs\.Job
+=================
+
+.. currentmodule:: prisms_jobs
+
+.. autoclass:: Job
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Job.__init__
+      ~Job.read
+      ~Job.script
+      ~Job.sub_string
+      ~Job.submit
+   
+   
+
+   
+   
+   

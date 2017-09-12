@@ -1,0 +1,30 @@
+prisms\_jobs\.interface\.default
+================================
+
+.. automodule:: prisms_jobs.interface.default
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      alter
+      delete
+      hold
+      job_id
+      job_rundir
+      job_status
+      read
+      release
+      submit
+   
+   
+
+   
+   
+   
+
+   
+   
+   

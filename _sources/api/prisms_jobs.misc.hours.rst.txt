@@ -1,0 +1,6 @@
+prisms\_jobs\.misc\.hours
+=========================
+
+.. currentmodule:: prisms_jobs.misc
+
+.. autofunction:: hours

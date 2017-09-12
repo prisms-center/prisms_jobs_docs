@@ -1,0 +1,6 @@
+prisms\_jobs\.complete\_job
+===========================
+
+.. currentmodule:: prisms_jobs
+
+.. autofunction:: complete_job

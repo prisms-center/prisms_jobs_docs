@@ -1,0 +1,6 @@
+prisms\_jobs\.templates\.PrismsPriorityJob
+==========================================
+
+.. currentmodule:: prisms_jobs.templates
+
+.. autofunction:: PrismsPriorityJob

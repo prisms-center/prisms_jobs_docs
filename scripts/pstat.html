@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pstat &mdash; prisms-jobs 3.0b0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+        <link rel="up" title="Command line scripts documentation" href="index.html"/>
+        <link rel="next" title="psub" href="psub.html"/>
+        <link rel="prev" title="Command line scripts documentation" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> prisms-jobs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">prisms_jobs documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Command line scripts documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pstat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-documentation">Help documentation:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="psub.html">psub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taskmaster.html">taskmaster</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">prisms-jobs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Command line scripts documentation</a> &raquo;</li>
+        
+      <li>pstat</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/scripts/pstat.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pstat">
+<h1>pstat<a class="headerlink" href="#pstat" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">pstat</span></code> gives command line access to the jobs database. It can be used to:</p>
+<ul class="simple">
+<li>List job info by:<ul>
+<li>Job id</li>
+<li>Modification time</li>
+<li>If still active</li>
+<li>Database column and regex<ul>
+<li>Possible columns can be determined from the <code class="docutils literal"><span class="pre">-f</span></code> output</li>
+</ul>
+</li>
+<li>Grouped series of continuation jobs, or ungrouped</li>
+</ul>
+</li>
+<li>Continue (re-submit) ‘Auto’ jobs</li>
+<li>Mark jobs as ‘Complete’ or ‘Incomplete’</li>
+<li>Abort running jobs</li>
+<li>Add/modify an error message</li>
+<li>Delete jobs from the database (and abort if currently running)</li>
+</ul>
+</div>
+<div class="section" id="help-documentation">
+<h2>Help documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
+<p><p>Print or modify PRISMS_JOBS job and task status.</p>
+<p>By default, ‘pstat’ prints status for select jobs. Jobs are
+selected by listing jobids or using –all, –range, or
+–recent, optionally combined with –active. Running ‘pstat’
+with no selection is equivalent to selecting ‘–all –active’.
+The default display style is a summary list. Other options are
+–full or –series.</p>
+<p>Using one of –complete, –continue, –error, –abort, or
+–delete modifies status instead of printing. User
+confirmation is required before a modification is applied,
+unless the –force option is given.</p>
+<p>Job status is as given by PRISMS_JOBS for a single job (‘C’, ‘R’,
+‘Q’, etc.).</p>
+<p>Task status is user-defined and defines the status of a single
+job within a possible series of jobs comprising some task.
+‘Auto’ jobs may be re-submitted with the –continue option.
+Please see:</p>
+<blockquote>
+<div><a class="reference external" href="https://github.com/prisms-center/prisms_jobs">https://github.com/prisms-center/prisms_jobs</a></div></blockquote>
+<p>for more information about ‘auto’ jobs.</p>
+<p>Possible values for task status are:</p>
+<blockquote>
+<div><p>”Complete”:    Job and task are complete.</p>
+<p>”Incomplete”:  Job or task are incomplete.</p>
+<dl class="docutils">
+<dt>”Continued”:   Job is complete, but task was not complete. In</dt>
+<dd>this case, ‘continuation_jobid’ is set with
+the jobid for the next job in the series of
+jobs comprising some task.</dd>
+<dt>”Check”:       Non-auto job is complete and requires user</dt>
+<dd>input for status.</dd>
+</dl>
+<p>”Error:.*”:    Some kind of error was noted.</p>
+<p>”Aborted”:     The job and task have been aborted.</p>
+</div></blockquote>
+</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">pstat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">|</span> <span class="o">-</span><span class="n">s</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="o">|</span> <span class="o">--</span><span class="nb">range</span> <span class="n">MINID</span> <span class="n">MAXID</span> <span class="o">|</span> <span class="o">--</span><span class="n">recent</span> <span class="n">DD</span><span class="p">:</span><span class="n">HH</span><span class="p">:</span><span class="n">MM</span><span class="p">:</span><span class="n">SS</span> <span class="o">|</span> <span class="o">--</span><span class="n">regex</span> <span class="n">KEY</span> <span class="n">REGEX</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">active</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">complete</span> <span class="o">|</span> <span class="o">--</span><span class="k">continue</span> <span class="o">|</span> <span class="o">--</span><span class="n">reset</span> <span class="o">|</span> <span class="o">--</span><span class="n">abort</span> <span class="o">|</span> <span class="o">--</span><span class="n">error</span> <span class="n">ERRMSG</span> <span class="o">|</span> <span class="o">--</span><span class="n">delete</span> <span class="o">|</span> <span class="o">--</span><span class="n">key</span> <span class="n">KEY</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span>
+             <span class="p">[</span><span class="n">JOBID</span> <span class="p">[</span><span class="n">JOBID</span> <span class="o">...</span><span class="p">]]</span>
+</pre></div>
+</div>
+<div class="section" id="Positional Arguments">
+<h3>Positional Arguments<a class="headerlink" href="#Positional Arguments" title="Permalink to this headline">¶</a></h3>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>JOBID</kbd></td>
+<td>Job IDs to query or operate on</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="Named Arguments">
+<h3>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline">¶</a></h3>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>-f, --full</kbd></td>
+<td><p class="first">List all fields instead of summary</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>-s, --series</kbd></td>
+<td><p class="first">List all fields grouped by continuation jobs</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>-a, --all</kbd></td>
+<td><p class="first">Select all jobs in database</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--range</kbd></td>
+<td>A range of Job IDs (inclusive) to query or operate on</td></tr>
+<tr><td class="option-group">
+<kbd>--recent</kbd></td>
+<td>Select jobs created or modified within given amout of time</td></tr>
+<tr><td class="option-group">
+<kbd>--regex</kbd></td>
+<td>Select jobs where the value of column ‘KEY’ matches                              the regular expression ‘REGEX’.</td></tr>
+<tr><td class="option-group">
+<kbd>--active</kbd></td>
+<td><p class="first">Select active jobs only. May be combined with –range and –recent</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--complete</kbd></td>
+<td><p class="first">Mark jobs as ‘Complete’</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--continue</kbd></td>
+<td><p class="first">Re-submit auto jobs</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--reset</kbd></td>
+<td><p class="first">Mark job as ‘Incomplete’</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--abort</kbd></td>
+<td><p class="first">Call qdel on job and mark as ‘Aborted’</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--error</kbd></td>
+<td>Add error message.</td></tr>
+<tr><td class="option-group">
+<kbd>--delete</kbd></td>
+<td><p class="first">Delete jobs from database. Aborts jobs that are still running.</p>
+<p class="last">Default: False</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd>--key</kbd></td>
+<td>Output data corresponding to ‘key’ for selected jobs.</td></tr>
+<tr><td class="option-group">
+<kbd>--force</kbd></td>
+<td><p class="first">Modify jobs without user confirmation</p>
+<p class="last">Default: False</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="psub.html" class="btn btn-neutral float-right" title="psub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Command line scripts documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.0b0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

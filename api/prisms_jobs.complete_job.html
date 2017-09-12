@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>prisms_jobs.complete_job &mdash; prisms-jobs 3.0b0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+        <link rel="up" title="prisms_jobs documentation" href="index.html"/>
+        <link rel="next" title="prisms_jobs.error_job" href="prisms_jobs.error_job.html"/>
+        <link rel="prev" title="prisms_jobs.EligibilityError" href="prisms_jobs.EligibilityError.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> prisms-jobs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">prisms_jobs documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#prisms-jobs">prisms_jobs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.Job.html">prisms_jobs.Job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.JobDB.html">prisms_jobs.JobDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.JobsError.html">prisms_jobs.JobsError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.JobDBError.html">prisms_jobs.JobDBError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.EligibilityError.html">prisms_jobs.EligibilityError</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">prisms_jobs.complete_job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.error_job.html">prisms_jobs.error_job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.set_software.html">prisms_jobs.set_software</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-interface">prisms_jobs.interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-misc">prisms_jobs.misc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-templates">prisms_jobs.templates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Command line scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">prisms-jobs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">prisms_jobs documentation</a> &raquo;</li>
+        
+      <li>prisms_jobs.complete_job</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/prisms_jobs.complete_job.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="prisms-jobs-complete-job">
+<h1>prisms_jobs.complete_job<a class="headerlink" href="#prisms-jobs-complete-job" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="prisms_jobs.complete_job">
+<code class="descclassname">prisms_jobs.</code><code class="descname">complete_job</code><span class="sig-paren">(</span><em>jobid=None</em>, <em>dbpath=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#complete_job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.complete_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the job as ‘Complete’ if possible</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dbpath</strong> (<em>str</em>) – <p>Path to JobDB database.</p>
+<p>If not given, use default database.</p>
+</li>
+<li><strong>jobid</strong> (<em>str</em>) – <p>ID of job to mark ‘Complete’.</p>
+<p>If not given, uses current job ID determined from the environment.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.JobsError.html#prisms_jobs.JobsError" title="prisms_jobs.JobsError"><code class="xref py py-exc docutils literal"><span class="pre">JobsError</span></code></a> – If job ID could not be determined</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="prisms_jobs.error_job.html" class="btn btn-neutral float-right" title="prisms_jobs.error_job" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="prisms_jobs.EligibilityError.html" class="btn btn-neutral" title="prisms_jobs.EligibilityError" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.0b0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

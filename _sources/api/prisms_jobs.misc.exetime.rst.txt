@@ -1,0 +1,6 @@
+prisms\_jobs\.misc\.exetime
+===========================
+
+.. currentmodule:: prisms_jobs.misc
+
+.. autofunction:: exetime

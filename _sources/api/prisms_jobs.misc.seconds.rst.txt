@@ -1,0 +1,6 @@
+prisms\_jobs\.misc\.seconds
+===========================
+
+.. currentmodule:: prisms_jobs.misc
+
+.. autofunction:: seconds

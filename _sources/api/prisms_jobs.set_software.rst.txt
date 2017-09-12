@@ -1,0 +1,6 @@
+prisms\_jobs\.set\_software
+===========================
+
+.. currentmodule:: prisms_jobs
+
+.. autofunction:: set_software

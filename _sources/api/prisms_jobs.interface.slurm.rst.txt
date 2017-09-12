@@ -1,0 +1,31 @@
+prisms\_jobs\.interface\.slurm
+==============================
+
+.. automodule:: prisms_jobs.interface.slurm
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      alter
+      delete
+      hold
+      job_id
+      job_rundir
+      job_status
+      read
+      release
+      sub_string
+      submit
+   
+   
+
+   
+   
+   
+
+   
+   
+   

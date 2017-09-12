@@ -1,0 +1,6 @@
+prisms\_jobs\.misc\.strftimedelta
+=================================
+
+.. currentmodule:: prisms_jobs.misc
+
+.. autofunction:: strftimedelta

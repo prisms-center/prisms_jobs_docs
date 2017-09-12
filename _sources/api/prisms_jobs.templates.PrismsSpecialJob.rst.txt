@@ -1,0 +1,6 @@
+prisms\_jobs\.templates\.PrismsSpecialJob
+=========================================
+
+.. currentmodule:: prisms_jobs.templates
+
+.. autofunction:: PrismsSpecialJob

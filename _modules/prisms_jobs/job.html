@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>prisms_jobs.job &mdash; prisms-jobs 3.0b0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../../index.html"/>
+        <link rel="up" title="prisms_jobs" href="../prisms_jobs.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> prisms-jobs
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">prisms_jobs documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scripts/index.html">Command line scripts documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">prisms-jobs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../prisms_jobs.html">prisms_jobs</a> &raquo;</li>
+        
+      <li>prisms_jobs.job</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for prisms_jobs.job</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; Class for individual Job objects &quot;&quot;&quot;</span>
+<span class="c1">### External ###</span>
+<span class="c1"># import subprocess</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1">### Local ###</span>
+<span class="kn">import</span> <span class="nn">prisms_jobs</span>
+<span class="kn">import</span> <span class="nn">jobdb</span>
+<span class="kn">import</span> <span class="nn">misc</span>
+
+<div class="viewcode-block" id="Job"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job">[docs]</a><span class="k">class</span> <span class="nc">Job</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1">#pylint: disable=too-many-instance-attributes</span>
+    <span class="sd">&quot;&quot;&quot;Represents a computational job</span>
+
+<span class="sd">    Initialize either with all the parameters, or with &#39;substr&#39; a submit script as a string.</span>
+<span class="sd">    If &#39;substr&#39; is given, all other arguments are ignored.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        substr (str): A submit script as a string.</span>
+<span class="sd">        name (str): Job name. Ex: ``&quot;myjob-0&quot;``</span>
+<span class="sd">            </span>
+<span class="sd">            The name specified may be up to and including 15 characters </span>
+<span class="sd">            in length. It must consist of printable, non white space characters</span>
+<span class="sd">            with the first character alphabetic.    </span>
+<span class="sd">        </span>
+<span class="sd">        account (str):  Account name. Ex: ``&quot;prismsproject_fluxoe&quot;``</span>
+<span class="sd">        nodes (int):    Number of nodes. Ex: 2</span>
+<span class="sd">        ppn (int):      Processors per node. Ex: 16</span>
+<span class="sd">        walltime (str): Walltime (``HH:MM:SS``). Ex: ``&quot;10:00:00&quot;``</span>
+<span class="sd">        pmem (str):     Memory requsted. Ex: ``&quot;3800mb&quot;``</span>
+<span class="sd">        qos (str):      Ex: ``&quot;flux&quot;``</span>
+<span class="sd">        queue (str):    Ex: ``&quot;fluxoe&quot;``</span>
+<span class="sd">        </span>
+<span class="sd">        exetime (str):  Time after which the job is eligible for execution. Ex: ``&quot;1100&quot;``</span>
+<span class="sd">            </span>
+<span class="sd">            Has the form: ``[[[[CC]YY]MM]DD]hhmm[.SS]``</span>
+<span class="sd">            Create using ``prisms_jobs.misc.exetime(deltatime)``, where deltatime </span>
+<span class="sd">            is a ``[[[DD:]MM:]HH:]SS`` string.</span>
+<span class="sd">        </span>
+<span class="sd">        message (str):  When to send email about the job. Ex: ``&quot;abe&quot;``</span>
+<span class="sd">            </span>
+<span class="sd">            The mail_options argument is a string which consists of either the single</span>
+<span class="sd">            character ``&quot;n&quot;``, or one or more of the characters ``&quot;a&quot;``, ``&quot;b&quot;``,</span>
+<span class="sd">            and ``&quot;e&quot;``.</span>
+<span class="sd">        </span>
+<span class="sd">            If the character ``&quot;n&quot;`` is specified, no normal mail is sent. Mail for job</span>
+<span class="sd">            cancels and other events outside of normal job processing are still sent.</span>
+<span class="sd">        </span>
+<span class="sd">            For the letters ``&quot;a&quot;``, ``&quot;b&quot;``, and ``&quot;e&quot;``:</span>
+<span class="sd">            </span>
+<span class="sd">               ===    ===</span>
+<span class="sd">                a     mail is sent when the job is aborted by the batch system.</span>
+<span class="sd">                b     mail is sent when the job begins execution.</span>
+<span class="sd">                e     mail is sent when the job terminates.</span>
+<span class="sd">               ===    ===</span>
+<span class="sd">        </span>
+<span class="sd">        email (str):  Where to send notifications.  Ex: ``&quot;jdoe@umich.edu&quot;``</span>
+<span class="sd">            </span>
+<span class="sd">            The email string is of the form: ``user[@host][,user[@host],...]``</span>
+<span class="sd">        </span>
+<span class="sd">        priority (str):  Priority ranges from (low) -1024 to (high) 1023. Ex: ``&quot;-200&quot;``</span>
+<span class="sd">        </span>
+<span class="sd">        command (str):   String with command to run by script. Ex: ``&quot;echo \&quot;hello\&quot; &gt; test.txt&quot;``</span>
+<span class="sd">        </span>
+<span class="sd">        auto (bool, optional, Default=False):</span>
+<span class="sd">        </span>
+<span class="sd">            Indicates an automatically re-submitting job.  Ex: ``True``</span>
+<span class="sd">            </span>
+<span class="sd">            Only set to True if the command uses this prisms_jobs module to set </span>
+<span class="sd">            itself as completed when it is completed. Otherwise, you may submit </span>
+<span class="sd">            it extra times leading to wasted resources and overwritten data.</span>
+<span class="sd">    </span>
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): Job name. Ex: ``&quot;myjob-0&quot;``</span>
+<span class="sd">        account (str):  Account name. Ex: ``&quot;prismsproject_fluxoe&quot;``</span>
+<span class="sd">        nodes (int):    Number of nodes. Ex: 2</span>
+<span class="sd">        ppn (int):      Processors per node. Ex: 16</span>
+<span class="sd">        walltime (str): Walltime (``HH:MM:SS``). Ex: ``&quot;10:00:00&quot;``</span>
+<span class="sd">        pmem (str):     Memory requsted. Ex: ``&quot;3800mb&quot;``</span>
+<span class="sd">        qos (str):      Ex: ``&quot;flux&quot;``</span>
+<span class="sd">        queue (str):    Ex: ``&quot;fluxoe&quot;``</span>
+<span class="sd">        exetime (str):  Time after which the job is eligible for execution. Ex: ``&quot;1100&quot;``</span>
+<span class="sd">        message (str):  When to send email about the job. Ex: ``&quot;abe&quot;``</span>
+<span class="sd">        email (str):  Where to send notifications.  Ex: ``&quot;jdoe@umich.edu&quot;``</span>
+<span class="sd">        priority (str):  Priority ranges from (low) -1024 to (high) 1023. Ex: ``&quot;-200&quot;``</span>
+<span class="sd">        command (str):   String with command to run by script. Ex: ``&quot;echo \&quot;hello\&quot; &gt; test.txt&quot;``</span>
+<span class="sd">        auto (bool):     Indicates an automatically re-submitting job.  Ex: ``True``</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="Job.__init__"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;STDIN&quot;</span><span class="p">,</span> <span class="n">account</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ppn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">walltime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1">#pylint: disable=too-many-arguments, too-many-locals</span>
+                 <span class="n">pmem</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">qos</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">queue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">priority</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">substr</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">substr</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">substr</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Declares a name for the job. The name specified may be up to and including</span>
+        <span class="c1"># 15 characters in length. It must consist of printable, non white space characters</span>
+        <span class="c1"># with the first character alphabetic.</span>
+        <span class="c1"># If the name option is not specified, to STDIN.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1"># account string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">account</span> <span class="o">=</span> <span class="n">account</span>
+
+        <span class="c1"># number of nodes to request</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
+
+        <span class="c1"># number of processors per node to request</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ppn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span>
+
+        <span class="c1"># string walltime for job (HH:MM:SS)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">walltime</span> <span class="o">=</span> <span class="n">walltime</span>
+
+        <span class="c1"># string memory requested (1000mb)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pmem</span> <span class="o">=</span> <span class="n">pmem</span>
+
+        <span class="c1"># qos string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">qos</span> <span class="o">=</span> <span class="n">qos</span>
+
+        <span class="c1"># queue string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="n">queue</span>
+
+        <span class="c1"># time eligible for execution</span>
+        <span class="c1"># PBS -a exetime</span>
+        <span class="c1"># Declares the time after which the job is eligible for execution,</span>
+        <span class="c1"># where exetime has the form: [[[[CC]YY]MM]DD]hhmm[.SS]</span>
+        <span class="c1"># create using prisms_jobs.misc.exetime( deltatime), where deltatime is a [[[DD:]MM:]HH:]SS string</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exetime</span> <span class="o">=</span> <span class="n">exetime</span>
+
+        <span class="c1"># when to send email about the job</span>
+        <span class="c1"># The mail_options argument is a string which consists of either the single</span>
+        <span class="c1"># character &quot;n&quot;, or one or more of the characters &quot;a&quot;, &quot;b&quot;, and &quot;e&quot;.</span>
+        <span class="c1">#</span>
+        <span class="c1"># If the character &quot;n&quot; is specified, no normal mail is sent. Mail for job</span>
+        <span class="c1"># cancels and other events outside of normal job processing are still sent.</span>
+        <span class="c1">#</span>
+        <span class="c1"># For the letters &quot;a&quot;, &quot;b&quot;, and &quot;e&quot;:</span>
+        <span class="c1"># a     mail is sent when the job is aborted by the batch system.</span>
+        <span class="c1"># b     mail is sent when the job begins execution.</span>
+        <span class="c1"># e     mail is sent when the job terminates.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+
+        <span class="c1"># User list to send email to. The email string is of the form:</span>
+        <span class="c1">#       user[@host][,user[@host],...]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
+
+        <span class="c1"># Priority ranges from (low) -1024 to (high) 1023</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">priority</span> <span class="o">=</span> <span class="n">priority</span>
+
+        <span class="c1"># text string with command to run</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">command</span> <span class="o">=</span> <span class="n">command</span>
+
+        <span class="c1"># if True, simply rerun job until complete; if False, human intervention required</span>
+        <span class="c1"># &#39;auto&#39; jobs should set JobDB status to &quot;finished&quot; when finished</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auto</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">auto</span><span class="p">)</span>
+
+        <span class="c1">#self.date_time</span>
+
+        <span class="c1">##################################</span>
+        <span class="c1"># Submission status:</span>
+
+        <span class="c1"># jobID</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobID</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1">#pylint: disable=invalid-name</span></div>
+
+    <span class="c1">#</span>
+
+<div class="viewcode-block" id="Job.sub_string"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.sub_string">[docs]</a>    <span class="k">def</span> <span class="nf">sub_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   <span class="c1">#pylint: disable=too-many-branches</span>
+        <span class="sd">&quot;&quot;&quot; Output Job as a string suitable for prisms_jobs.software &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">sub_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Job.script"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.script">[docs]</a>    <span class="k">def</span> <span class="nf">script</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;submit.sh&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write this Job as a bash script</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filename (str):  Name of the script. Ex: &quot;submit.sh&quot;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+            <span class="n">myfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sub_string</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Job.submit"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.submit">[docs]</a>    <span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">add</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dbpath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Submit this Job using the appropriate command for prisms_jobs.software.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">           add (bool): Should this job be added to the JobDB database?</span>
+<span class="sd">           dbpath (str): Specify a non-default JobDB database</span>
+<span class="sd">        </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            prisms_jobs.JobsError: If error submitting the job.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobID</span> <span class="o">=</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">substr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sub_string</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="n">add</span><span class="p">:</span>
+            <span class="n">db</span> <span class="o">=</span> <span class="n">jobdb</span><span class="o">.</span><span class="n">JobDB</span><span class="p">(</span><span class="n">dbpath</span><span class="o">=</span><span class="n">dbpath</span><span class="p">)</span> <span class="c1">#pylint: disable=invalid-name</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="n">jobdb</span><span class="o">.</span><span class="n">job_status_dict</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">jobID</span><span class="p">,</span> <span class="n">jobname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                           <span class="n">rundir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">jobstatus</span><span class="o">=</span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
+                                           <span class="n">auto</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">auto</span><span class="p">,</span> <span class="n">qsubstr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sub_string</span><span class="p">(),</span>
+                                           <span class="n">walltime</span><span class="o">=</span><span class="n">misc</span><span class="o">.</span><span class="n">seconds</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">walltime</span><span class="p">),</span>
+                                           <span class="n">nodes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span> <span class="n">procs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">ppn</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Job.read"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qsubstr</span><span class="p">):</span>    <span class="c1">#pylint: disable=too-many-branches, too-many-statements</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set this Job object from string representing a submit script appropriate</span>
+<span class="sd">        for the prisms_jobs.software.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            qsubstr (str): A submit script as a string</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qsubstr</span><span class="p">)</span></div></div>
+
+
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.0b0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

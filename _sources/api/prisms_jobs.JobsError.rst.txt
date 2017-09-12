@@ -1,0 +1,6 @@
+prisms\_jobs\.JobsError
+=======================
+
+.. currentmodule:: prisms_jobs
+
+.. autoexception:: JobsError

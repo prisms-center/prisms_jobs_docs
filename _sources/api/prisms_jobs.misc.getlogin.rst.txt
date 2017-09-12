@@ -1,0 +1,6 @@
+prisms\_jobs\.misc\.getlogin
+============================
+
+.. currentmodule:: prisms_jobs.misc
+
+.. autofunction:: getlogin

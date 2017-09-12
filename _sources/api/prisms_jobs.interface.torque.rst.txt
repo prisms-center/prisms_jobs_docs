@@ -1,0 +1,31 @@
+prisms\_jobs\.interface\.torque
+===============================
+
+.. automodule:: prisms_jobs.interface.torque
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      alter
+      delete
+      hold
+      job_id
+      job_rundir
+      job_status
+      read
+      release
+      sub_string
+      submit
+   
+   
+
+   
+   
+   
+
+   
+   
+   

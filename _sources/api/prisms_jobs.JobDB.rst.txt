@@ -1,0 +1,60 @@
+prisms\_jobs\.JobDB
+===================
+
+.. currentmodule:: prisms_jobs
+
+.. autoclass:: JobDB
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~JobDB.__init__
+      ~JobDB.abort_job
+      ~JobDB.add
+      ~JobDB.close
+      ~JobDB.complete_job
+      ~JobDB.connect
+      ~JobDB.continue_all
+      ~JobDB.continue_job
+      ~JobDB.delete_job
+      ~JobDB.eligible_to_abort
+      ~JobDB.eligible_to_complete
+      ~JobDB.eligible_to_continue
+      ~JobDB.eligible_to_delete
+      ~JobDB.eligible_to_error
+      ~JobDB.eligible_to_reset
+      ~JobDB.error_job
+      ~JobDB.print_active
+      ~JobDB.print_all
+      ~JobDB.print_header
+      ~JobDB.print_job
+      ~JobDB.print_selected
+      ~JobDB.print_untracked
+      ~JobDB.reset_job
+      ~JobDB.select_active_series_id
+      ~JobDB.select_all_active_id
+      ~JobDB.select_all_id
+      ~JobDB.select_all_series_id
+      ~JobDB.select_child
+      ~JobDB.select_job
+      ~JobDB.select_parent
+      ~JobDB.select_range_id
+      ~JobDB.select_range_series_id
+      ~JobDB.select_recent_id
+      ~JobDB.select_recent_series_id
+      ~JobDB.select_regex_id
+      ~JobDB.select_regex_series_id
+      ~JobDB.select_series
+      ~JobDB.select_series_id
+      ~JobDB.update
+   
+   
+
+   
+   
+   

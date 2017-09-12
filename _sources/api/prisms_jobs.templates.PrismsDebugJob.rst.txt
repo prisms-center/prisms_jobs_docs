@@ -1,0 +1,6 @@
+prisms\_jobs\.templates\.PrismsDebugJob
+=======================================
+
+.. currentmodule:: prisms_jobs.templates
+
+.. autofunction:: PrismsDebugJob

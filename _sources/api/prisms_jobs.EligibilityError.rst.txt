@@ -1,0 +1,6 @@
+prisms\_jobs\.EligibilityError
+==============================
+
+.. currentmodule:: prisms_jobs
+
+.. autoexception:: EligibilityError
