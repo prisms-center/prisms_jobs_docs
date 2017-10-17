@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.job &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>prisms_jobs.job &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../../index.html"/>
         <link rel="up" title="prisms_jobs" href="../prisms_jobs.html"/> 
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -164,16 +164,18 @@
             
   <h1>Source code for prisms_jobs.job</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; Class for individual Job objects &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="o">*</span>
+
 <span class="c1">### External ###</span>
 <span class="c1"># import subprocess</span>
-<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="c1">### Local ###</span>
 <span class="kn">import</span> <span class="nn">prisms_jobs</span>
-<span class="kn">import</span> <span class="nn">jobdb</span>
-<span class="kn">import</span> <span class="nn">misc</span>
+<span class="kn">from</span> <span class="nn">prisms_jobs</span> <span class="k">import</span> <span class="n">config</span><span class="p">,</span> <span class="n">jobdb</span><span class="p">,</span> <span class="n">misc</span>
 
 <div class="viewcode-block" id="Job"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job">[docs]</a><span class="k">class</span> <span class="nc">Job</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1">#pylint: disable=too-many-instance-attributes</span>
     <span class="sd">&quot;&quot;&quot;Represents a computational job</span>
@@ -335,8 +337,8 @@
     <span class="c1">#</span>
 
 <div class="viewcode-block" id="Job.sub_string"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.sub_string">[docs]</a>    <span class="k">def</span> <span class="nf">sub_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>   <span class="c1">#pylint: disable=too-many-branches</span>
-        <span class="sd">&quot;&quot;&quot; Output Job as a string suitable for prisms_jobs.software &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">sub_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="sd">&quot;&quot;&quot; Output Job as a string suitable for prisms_jobs.config.software() &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">software</span><span class="p">()</span><span class="o">.</span><span class="n">sub_string</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Job.script"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.script">[docs]</a>    <span class="k">def</span> <span class="nf">script</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;submit.sh&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -351,7 +353,7 @@
 
 <div class="viewcode-block" id="Job.submit"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.submit">[docs]</a>    <span class="k">def</span> <span class="nf">submit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">add</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dbpath</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Submit this Job using the appropriate command for prisms_jobs.software.</span>
+<span class="sd">        Submit this Job using the appropriate command for prisms_jobs.config.software().</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">           add (bool): Should this job be added to the JobDB database?</span>
@@ -362,7 +364,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">jobID</span> <span class="o">=</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">substr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sub_string</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobID</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">software</span><span class="p">()</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">substr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sub_string</span><span class="p">())</span>
 
         <span class="k">if</span> <span class="n">add</span><span class="p">:</span>
             <span class="n">db</span> <span class="o">=</span> <span class="n">jobdb</span><span class="o">.</span><span class="n">JobDB</span><span class="p">(</span><span class="n">dbpath</span><span class="o">=</span><span class="n">dbpath</span><span class="p">)</span> <span class="c1">#pylint: disable=invalid-name</span>
@@ -378,13 +380,13 @@
 <div class="viewcode-block" id="Job.read"><a class="viewcode-back" href="../../api/prisms_jobs.Job.html#prisms_jobs.Job.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qsubstr</span><span class="p">):</span>    <span class="c1">#pylint: disable=too-many-branches, too-many-statements</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set this Job object from string representing a submit script appropriate</span>
-<span class="sd">        for the prisms_jobs.software.</span>
+<span class="sd">        for the config.software().</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            qsubstr (str): A submit script as a string</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">software</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qsubstr</span><span class="p">)</span></div></div>
+        <span class="n">config</span><span class="o">.</span><span class="n">software</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qsubstr</span><span class="p">)</span></div></div>
 
 
 </pre></div>
@@ -423,7 +425,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

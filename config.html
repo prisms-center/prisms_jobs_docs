@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>Configuration &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs documentation" href="api/index.html"/>
         <link rel="prev" title="Installation" href="install.html"/> 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -163,32 +163,134 @@
             
   <div class="section" id="configuration">
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
-<p>Environment variables (typically not necessary):</p>
+<p>Some configuration is possible:</p>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_DB</span></code>:</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR</span></code>: (optional, default=``$HOME/.prisms_jobs``)</p>
 <blockquote>
-<div><p>The SQLite jobs database is stored by default at <code class="docutils literal"><span class="pre">$HOME/.prisms_jobs/jobs.db</span></code>.
-If <code class="docutils literal"><span class="pre">PRISMS_JOBS_DB</span></code> is set, then the jobs database is stored at
-<code class="docutils literal"><span class="pre">$PRISMS_JOBS_DB/jobs.db</span></code>.</p>
+<div><p>The jobs database is stored at <code class="docutils literal"><span class="pre">$PBS_JOB_DIR/jobs.db</span></code>.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_SOFTWARE</span></code>:</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR/config.json</span></code>:</p>
 <blockquote>
-<div><p>By default, <code class="docutils literal"><span class="pre">prisms-jobs</span></code> will attempt to automatically
-detect <code class="docutils literal"><span class="pre">'torque'</span></code> (by checking for the ‘qstat’ executable) or <code class="docutils literal"><span class="pre">'slurm'</span></code> (by
-checking for the ‘sbatch’ executable). The <code class="docutils literal"><span class="pre">'default'</span></code> module provides stubs to
-enable testing/use on systems with no job management software. If <code class="docutils literal"><span class="pre">PRISMS_JOBS_SOFTWARE</span></code>
-is set to any other value, it is treated as the name of a Python module containing
-a custom interface which <code class="docutils literal"><span class="pre">prisms_jobs</span></code> will attempt to import and use.</p>
+<div><p>Automatically generated JSON configuration file storing settings:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">&quot;dbpath&quot;</span></code>: (str)</p>
+<blockquote>
+<div><p>The location of the SQLite jobs database.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_UPDATE</span></code>:</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">&quot;software&quot;</span></code>: (str)</p>
 <blockquote>
-<div><p>If unset or set to <code class="docutils literal"><span class="pre">'default'</span></code>, the <code class="docutils literal"><span class="pre">pstat</span></code> script
-will attempt to update the status of all jobs that are not yet complete (<code class="docutils literal"><span class="pre">'C'</span></code>).
-For systems with multiple-clusters-same-home, this may be set to <code class="docutils literal"><span class="pre">'check_hostname'</span></code>
-and <code class="docutils literal"><span class="pre">pstat</span></code> will only attempt to update the status of jobs that are not yet
-complete (<code class="docutils literal"><span class="pre">'C'</span></code>) and have matching hostname, as determined by <code class="docutils literal"><span class="pre">socket.gethostname()</span></code>.</p>
+<div><p>The job submission software interface to use. <code class="docutils literal"><span class="pre">&quot;torque&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;slurm&quot;</span></code>
+is automatically detected if present.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>“torque”</td>
+<td>TORQUE</td>
+</tr>
+<tr class="row-even"><td>“slurm”</td>
+<td>Slurm</td>
+</tr>
+<tr class="row-odd"><td>“default” (or null)</td>
+<td>Empty stub, does nothing</td>
+</tr>
+<tr class="row-even"><td>other</td>
+<td>The name of an existing findable python module
+implementing an interface</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">&quot;write_submit_script&quot;</span></code>: (bool, optional, default=false)</p>
+<blockquote>
+<div><p>If <code class="docutils literal"><span class="pre">true</span></code>, submit jobs by first writing a submit script file and then
+submitting it. Otherwise, by default, the job is submitted via the command
+line.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">&quot;update_method&quot;</span></code>: (str, optional, default=”default”)</p>
+<blockquote>
+<div><p>Controls which jobs are updated when JobDB.update() is called.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="72%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>“default” (or null)</td>
+<td>Select jobs with jobstatus != ‘C’</td>
+</tr>
+<tr class="row-even"><td>“check_hostname”</td>
+<td>Select jobs with jobstatus != ‘C’ and matching
+hostname. This is useful on compute clusters
+where multiple machines with different queues
+share the same <code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">&quot;taskmaster_job_kwargs&quot;</span></code>: (JSON object, optional)</p>
+<blockquote>
+<div><p>Holds options for the <a class="reference external" href="scripts/taskmaster.html">taskmaster</a> job. Defaults are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>‘name’</td>
+<td>“taskmaster”</td>
+</tr>
+<tr class="row-even"><td>‘account’</td>
+<td>“prismsprojectdebug_fluxoe”</td>
+</tr>
+<tr class="row-odd"><td>‘nodes’</td>
+<td>“1”</td>
+</tr>
+<tr class="row-even"><td>‘ppn’</td>
+<td>“1”</td>
+</tr>
+<tr class="row-odd"><td>‘walltime’</td>
+<td>“1:00:00”</td>
+</tr>
+<tr class="row-even"><td>‘pmem’</td>
+<td>“3800mb”</td>
+</tr>
+<tr class="row-odd"><td>‘qos’</td>
+<td>“flux”</td>
+</tr>
+<tr class="row-even"><td>‘queue’</td>
+<td>“fluxoe”</td>
+</tr>
+<tr class="row-odd"><td>‘message’</td>
+<td>null</td>
+</tr>
+<tr class="row-even"><td>‘email’</td>
+<td>null</td>
+</tr>
+<tr class="row-odd"><td>‘priority’</td>
+<td>“-1000”</td>
+</tr>
+<tr class="row-even"><td>‘command’</td>
+<td>“rm taskmaster.o*; rm taskmaster.e*\n”</td>
+</tr>
+<tr class="row-odd"><td>‘auto’</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, the <code class="docutils literal"><span class="pre">'exetime'</span></code> is set based on the <code class="docutils literal"><span class="pre">--delay</span></code>
+commandline argument and the commandline invocation used to launch
+<code class="docutils literal"><span class="pre">taskmaster</span></code> is appended to <code class="docutils literal"><span class="pre">'command'</span></code>.</p>
+</div></blockquote>
+</li>
+</ul>
 </div></blockquote>
 </li>
 </ul>
@@ -238,7 +340,7 @@ complete (<code class="docutils literal"><span class="pre">'C'</span></code>) an
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

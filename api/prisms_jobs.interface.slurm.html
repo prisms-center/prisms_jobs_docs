@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.interface.slurm &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>prisms_jobs.interface.slurm &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs.interface.default" href="prisms_jobs.interface.default.html"/>
         <link rel="prev" title="prisms_jobs.interface.torque" href="prisms_jobs.interface.torque.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -103,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.interface.default.html">prisms_jobs.interface.default</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-config">prisms_jobs.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-misc">prisms_jobs.misc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-templates">prisms_jobs.templates</a></li>
 </ul>
@@ -212,7 +213,7 @@
 <tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.interface.slurm.sub_string" title="prisms_jobs.interface.slurm.sub_string"><code class="xref py py-obj docutils literal"><span class="pre">sub_string</span></code></a>(job)</td>
 <td>Write Job as a string suitable for slurm</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.interface.slurm.submit" title="prisms_jobs.interface.slurm.submit"><code class="xref py py-obj docutils literal"><span class="pre">submit</span></code></a>(substr)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.interface.slurm.submit" title="prisms_jobs.interface.slurm.submit"><code class="xref py py-obj docutils literal"><span class="pre">submit</span></code></a>(substr[,&nbsp;write_submit_script])</td>
 <td>Submit a job using <code class="docutils literal"><span class="pre">sbatch</span></code>.</td>
 </tr>
 </tbody>
@@ -221,11 +222,19 @@
 <dt id="prisms_jobs.interface.slurm._squeue">
 <code class="descclassname">prisms_jobs.interface.slurm.</code><code class="descname">_squeue</code><span class="sig-paren">(</span><em>jobid=None</em>, <em>username='bpuchala'</em>, <em>full=False</em>, <em>sformat=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/interface/slurm.html#_squeue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.interface.slurm._squeue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the stdout of squeue minus the header lines.</p>
-<p>By default, ‘username’ is set to the current user.
+<blockquote>
+<div>By default, ‘username’ is set to the current user.
 ‘full’ is the ‘-f’ option
 ‘jobid’ is a string or list of strings of job ids
-‘sformat’ is a squeue format string (e.g., “%A %i %j %c”)</p>
-<p>Returns the text of squeue, minus the header lines</p>
+‘sformat’ is a squeue format string (e.g., “%A %i %j %c”)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – the text of squeue, minus the header lines</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -409,17 +418,25 @@ if all==True,  else None.</p>
 
 <dl class="function">
 <dt id="prisms_jobs.interface.slurm.submit">
-<code class="descclassname">prisms_jobs.interface.slurm.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>substr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/interface/slurm.html#submit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.interface.slurm.submit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">prisms_jobs.interface.slurm.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>substr</em>, <em>write_submit_script=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/interface/slurm.html#submit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.interface.slurm.submit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submit a job using <code class="docutils literal"><span class="pre">sbatch</span></code>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>substr</strong> (<em>str</em>) – The submit script string</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>substr</strong> (<em>str</em>) – The submit script string</li>
+<li><strong>write_submit_script</strong> (<em>bool</em><em>, </em><em>optional</em>) – If true, submit via file skipping
+lines containing ‘#SBATCH -J’; otherwise, submit via commandline. If
+not specified, uses <code class="docutils literal"><span class="pre">prisms_jobs.config['write_submit_script']</span></code>.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><em>str</em> – ID of submitted job</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><em>str</em> – ID of submitted job</p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">JobsError</span></code> – If a submission error occurs</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">JobsError</span></code> – If a submission error occurs</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -471,7 +488,7 @@ if all==True,  else None.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

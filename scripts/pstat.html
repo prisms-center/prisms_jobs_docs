@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pstat &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>pstat &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Command line scripts documentation" href="index.html"/>
         <link rel="next" title="psub" href="psub.html"/>
         <link rel="prev" title="Command line scripts documentation" href="index.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -97,17 +97,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">prisms_jobs documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Command line scripts documentation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">pstat</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#help-documentation">Help documentation:</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">pstat</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-documentation"><code class="docutils literal"><span class="pre">--help</span></code> documentation:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="psub.html">psub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="taskmaster.html">taskmaster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="psub.html"><code class="docutils literal"><span class="pre">psub</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="taskmaster.html"><code class="docutils literal"><span class="pre">taskmaster</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Getting help</a></li>
@@ -158,7 +158,7 @@
         
           <li><a href="index.html">Command line scripts documentation</a> &raquo;</li>
         
-      <li>pstat</li>
+      <li><code class="docutils literal"><span class="pre">pstat</span></code></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -178,9 +178,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="pstat">
-<h1>pstat<a class="headerlink" href="#pstat" title="Permalink to this headline">¶</a></h1>
+<h1><code class="docutils literal"><span class="pre">pstat</span></code><a class="headerlink" href="#pstat" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">pstat</span></code> gives command line access to the jobs database. It can be used to:</p>
 <ul class="simple">
 <li>List job info by:<ul>
@@ -202,8 +202,8 @@
 </ul>
 </div>
 <div class="section" id="help-documentation">
-<h2>Help documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
-<p><p>Print or modify PRISMS_JOBS job and task status.</p>
+<h2><code class="docutils literal"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
+<p><p>Print or modify <cite>prisms-jobs</cite> job and task status.</p>
 <p>By default, ‘pstat’ prints status for select jobs. Jobs are
 selected by listing jobids or using –all, –range, or
 –recent, optionally combined with –active. Running ‘pstat’
@@ -214,30 +214,43 @@ The default display style is a summary list. Other options are
 –delete modifies status instead of printing. User
 confirmation is required before a modification is applied,
 unless the –force option is given.</p>
-<p>Job status is as given by PRISMS_JOBS for a single job (‘C’, ‘R’,
+<p>Job status is as given by <cite>prisms-jobs</cite> for a single job (‘C’, ‘R’,
 ‘Q’, etc.).</p>
 <p>Task status is user-defined and defines the status of a single
 job within a possible series of jobs comprising some task.
-‘Auto’ jobs may be re-submitted with the –continue option.
-Please see:</p>
-<blockquote>
-<div><a class="reference external" href="https://github.com/prisms-center/prisms_jobs">https://github.com/prisms-center/prisms_jobs</a></div></blockquote>
-<p>for more information about ‘auto’ jobs.</p>
+‘Auto’ jobs may be re-submitted with the –continue option.</p>
+<p>Jobs are marked ‘auto’ either by submitting through the python 
+class <code class="docutils literal"><span class="pre">prisms_jobs.Job</span></code> with the attribute <code class="docutils literal"><span class="pre">auto=True</span></code>, or 
+by submitting a script which contains the line <code class="docutils literal"><span class="pre">#auto=True</span></code> 
+via <code class="docutils literal"><span class="pre">psub</span></code>.</p>
 <p>Possible values for task status are:</p>
-<blockquote>
-<div><p>”Complete”:    Job and task are complete.</p>
-<p>”Incomplete”:  Job or task are incomplete.</p>
-<dl class="docutils">
-<dt>”Continued”:   Job is complete, but task was not complete. In</dt>
-<dd>this case, ‘continuation_jobid’ is set with
-the jobid for the next job in the series of
-jobs comprising some task.</dd>
-<dt>”Check”:       Non-auto job is complete and requires user</dt>
-<dd>input for status.</dd>
-</dl>
-<p>”Error:.*”:    Some kind of error was noted.</p>
-<p>”Aborted”:     The job and task have been aborted.</p>
-</div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>”Complete”</td>
+<td>Job and task are complete.</td>
+</tr>
+<tr class="row-even"><td>”Incomplete”</td>
+<td>Job or task are incomplete.</td>
+</tr>
+<tr class="row-odd"><td>”Continued”</td>
+<td>Job is complete, but task was not complete.</td>
+</tr>
+<tr class="row-even"><td>”Check”</td>
+<td>Non-auto job is complete and requires user
+input for status.</td>
+</tr>
+<tr class="row-odd"><td>”Error:.*”</td>
+<td>Some kind of error was noted.</td>
+</tr>
+<tr class="row-even"><td>”Aborted”</td>
+<td>The job and task have been aborted.</td>
+</tr>
+</tbody>
+</table>
 </p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">pstat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">|</span> <span class="o">-</span><span class="n">s</span><span class="p">]</span>
              <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="o">|</span> <span class="o">--</span><span class="nb">range</span> <span class="n">MINID</span> <span class="n">MAXID</span> <span class="o">|</span> <span class="o">--</span><span class="n">recent</span> <span class="n">DD</span><span class="p">:</span><span class="n">HH</span><span class="p">:</span><span class="n">MM</span><span class="p">:</span><span class="n">SS</span> <span class="o">|</span> <span class="o">--</span><span class="n">regex</span> <span class="n">KEY</span> <span class="n">REGEX</span><span class="p">]</span>
@@ -380,7 +393,7 @@ jobs comprising some task.</dd>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

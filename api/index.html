@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs documentation &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>prisms_jobs documentation &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
         <link rel="next" title="prisms_jobs.Job" href="prisms_jobs.Job.html"/>
         <link rel="prev" title="Configuration" href="../config.html"/> 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -103,13 +103,28 @@
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.EligibilityError.html">prisms_jobs.EligibilityError</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.complete_job.html">prisms_jobs.complete_job</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.error_job.html">prisms_jobs.error_job</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.set_software.html">prisms_jobs.set_software</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#prisms-jobs-interface">prisms_jobs.interface</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.interface.torque.html">prisms_jobs.interface.torque</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.interface.slurm.html">prisms_jobs.interface.slurm</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.interface.default.html">prisms_jobs.interface.default</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prisms-jobs-config">prisms_jobs.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.configure.html">prisms_jobs.config.configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.dbpath.html">prisms_jobs.config.dbpath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.settings.html">prisms_jobs.config.settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.read_config.html">prisms_jobs.config.read_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.write_config.html">prisms_jobs.config.write_config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.default_settings.html">prisms_jobs.config.default_settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.config_dir.html">prisms_jobs.config.config_dir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.config_path.html">prisms_jobs.config.config_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.update_selection_method.html">prisms_jobs.config.update_selection_method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.set_update_selection_method.html">prisms_jobs.config.set_update_selection_method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.software.html">prisms_jobs.config.software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.set_software.html">prisms_jobs.config.set_software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.config.detect_software.html">prisms_jobs.config.detect_software</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#prisms-jobs-misc">prisms_jobs.misc</a><ul>
@@ -213,7 +228,7 @@
 <td>A primsms_jobs Job Database object</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.JobsError.html#prisms_jobs.JobsError" title="prisms_jobs.JobsError"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.JobsError</span></code></a>(jobid,&nbsp;msg)</td>
-<td>A custom error class for pbs errors</td>
+<td>A custom error class for prisms_jobs errors</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="prisms_jobs.JobDBError.html#prisms_jobs.JobDBError" title="prisms_jobs.JobDBError"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.JobDBError</span></code></a>(msg)</td>
 <td>Custom error class for JobDB</td>
@@ -226,9 +241,6 @@
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.error_job.html#prisms_jobs.error_job" title="prisms_jobs.error_job"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.error_job</span></code></a>(message[,&nbsp;jobid,&nbsp;dbpath])</td>
 <td>Mark the job as ‘Error: message’ if possible</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.set_software.html#prisms_jobs.set_software" title="prisms_jobs.set_software"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.set_software</span></code></a>([user_override])</td>
-<td>Import interface with job management software as module named <code class="docutils literal"><span class="pre">prisms_jobs.software</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -249,6 +261,56 @@
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.interface.default.html#module-prisms_jobs.interface.default" title="prisms_jobs.interface.default"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.interface.default</span></code></a></td>
 <td>Stub to use when running on a machine without job management software</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="prisms-jobs-config">
+<h2>prisms_jobs.config<a class="headerlink" href="#prisms-jobs-config" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.configure.html#prisms_jobs.config.configure" title="prisms_jobs.config.configure"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.configure</span></code></a>([settings])</td>
+<td>Set configuration</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.config.dbpath.html#prisms_jobs.config.dbpath" title="prisms_jobs.config.dbpath"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.dbpath</span></code></a>()</td>
+<td>Settings dictionary</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.settings.html#prisms_jobs.config.settings" title="prisms_jobs.config.settings"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.settings</span></code></a>()</td>
+<td>Settings dictionary</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.config.read_config.html#prisms_jobs.config.read_config" title="prisms_jobs.config.read_config"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.read_config</span></code></a>([dir])</td>
+<td>Read configuration file.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.write_config.html#prisms_jobs.config.write_config" title="prisms_jobs.config.write_config"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.write_config</span></code></a>([dir,&nbsp;settings])</td>
+<td>Write current configuration settings to file.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.config.default_settings.html#prisms_jobs.config.default_settings" title="prisms_jobs.config.default_settings"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.default_settings</span></code></a>([dir])</td>
+<td>Default configuration dictionary</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.config_dir.html#prisms_jobs.config.config_dir" title="prisms_jobs.config.config_dir"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.config_dir</span></code></a>()</td>
+<td>Return configuration directory</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.config.config_path.html#prisms_jobs.config.config_path" title="prisms_jobs.config.config_path"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.config_path</span></code></a>([dir])</td>
+<td>Return configuration file location</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.update_selection_method.html#prisms_jobs.config.update_selection_method" title="prisms_jobs.config.update_selection_method"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.update_selection_method</span></code></a>()</td>
+<td>The jobdb update selection method function</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.config.set_update_selection_method.html#prisms_jobs.config.set_update_selection_method" title="prisms_jobs.config.set_update_selection_method"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.set_update_selection_method</span></code></a>([…])</td>
+<td>Enable customization of which jobs are selected for JobDB.update()</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.software.html#prisms_jobs.config.software" title="prisms_jobs.config.software"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.software</span></code></a>()</td>
+<td>The job management software interface module</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="prisms_jobs.config.set_software.html#prisms_jobs.config.set_software" title="prisms_jobs.config.set_software"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.set_software</span></code></a>([software_name])</td>
+<td>Import interface with job management software as module named <code class="docutils literal"><span class="pre">prisms_jobs.software</span></code></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="prisms_jobs.config.detect_software.html#prisms_jobs.config.detect_software" title="prisms_jobs.config.detect_software"><code class="xref py py-obj docutils literal"><span class="pre">prisms_jobs.config.detect_software</span></code></a>()</td>
+<td>Detect installed job management software</td>
 </tr>
 </tbody>
 </table>
@@ -351,7 +413,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

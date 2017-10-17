@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>taskmaster &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>taskmaster &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Command line scripts documentation" href="index.html"/>
         <link rel="next" title="Getting help" href="../help.html"/>
         <link rel="prev" title="psub" href="psub.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -97,10 +97,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">prisms_jobs documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Command line scripts documentation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="pstat.html">pstat</a></li>
-<li class="toctree-l2"><a class="reference internal" href="psub.html">psub</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">taskmaster</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#help-documentation">Help documentation:</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pstat.html"><code class="docutils literal"><span class="pre">pstat</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="psub.html"><code class="docutils literal"><span class="pre">psub</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">taskmaster</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#summary">Summary:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-documentation"><code class="docutils literal"><span class="pre">--help</span></code> documentation:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
 </ul>
 </li>
@@ -156,7 +157,7 @@
         
           <li><a href="index.html">Command line scripts documentation</a> &raquo;</li>
         
-      <li>taskmaster</li>
+      <li><code class="docutils literal"><span class="pre">taskmaster</span></code></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -176,19 +177,29 @@
            <div itemprop="articleBody">
             
   <div class="section" id="taskmaster">
-<h1>taskmaster<a class="headerlink" href="#taskmaster" title="Permalink to this headline">¶</a></h1>
-<p><code class="docutils literal"><span class="pre">taskmaster</span></code> submits a job on the PRISMS flux debug queue that will repeatedly
-resubmit any <code class="docutils literal"><span class="pre">Auto</span></code> jobs in the job database that have completed but whose
-taskstatus is still <code class="docutils literal"><span class="pre">'Incomplete'</span></code> (perhaps because the jobs has hit the walltime
-before completing or failed to converge) and then resubmit itself with a delay
-before execution.</p>
-<p>To use on machines other than flux change the line containing</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">=</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">templates</span><span class="o">.</span><span class="n">PrismsDebugJob</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-</pre></div>
+<h1><code class="docutils literal"><span class="pre">taskmaster</span></code><a class="headerlink" href="#taskmaster" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">taskmaster</span></code> submits a job that will repeatedly resubmit any <code class="docutils literal"><span class="pre">Auto</span></code> jobs in
+the job database that have completed but whose taskstatus is still <code class="docutils literal"><span class="pre">'Incomplete'</span></code>
+(perhaps because the jobs has hit the walltime before completing or failed to
+converge) and then resubmit itself with a delay before execution. As not all
+compute resources allow this behavior, remember check the policy prior to using
+<code class="docutils literal"><span class="pre">taskmaster</span></code> on a new compute resource.</p>
+<p>The job submission options can be customized by editing the <code class="docutils literal"><span class="pre">prisms-jobs</span></code>
+<a class="reference internal" href="#configuration-file">configuration file</a>.</p>
 </div>
 <div class="section" id="help-documentation">
-<h2>Help documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
-<p>Automatically resubmit jobs</p>
+<h2><code class="docutils literal"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
+<p><p>Automatically resubmit jobs.</p>
+<p>’taskmaster’ submits itself with instructions to be run after an amount of time
+specified by –delay (default=15:00). When it runs, it continues all auto
+prisms_jobs jobs in the database that are incomplete and then re-submits itself
+to execute again after the specified delay.</p>
+<p>The specifics of ‘taskmaster’ submission can be customized by editing the 
+‘taskmaster_job_kwargs’ object in the prisms_jobs configuration file:
+<code class="docutils literal"><span class="pre">$PRISMS_JOBS_DIR/config.json</span></code>.</p>
+</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">taskmaster</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">DELAY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">hold</span> <span class="o">|</span> <span class="o">--</span><span class="n">release</span> <span class="o">|</span> <span class="o">--</span><span class="n">kill</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -221,6 +232,7 @@ before execution.</p>
 </tbody>
 </table>
 </div>
+<p><span class="target" id="configuration-file">configuration file</span>: config.html</p>
 </div>
 </div>
 
@@ -268,7 +280,7 @@ before execution.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

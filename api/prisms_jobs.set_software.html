@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
-        <link rel="next" title="prisms_jobs.interface.torque" href="prisms_jobs.interface.torque.html"/>
-        <link rel="prev" title="prisms_jobs.error_job" href="prisms_jobs.error_job.html"/> 
+        <link rel="next" title="prisms_jobs.set_update_selection_method" href="prisms_jobs.set_update_selection_method.html"/>
+        <link rel="prev" title="prisms_jobs.read_config" href="prisms_jobs.read_config.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -103,8 +103,12 @@
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.JobDBError.html">prisms_jobs.JobDBError</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.EligibilityError.html">prisms_jobs.EligibilityError</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.complete_job.html">prisms_jobs.complete_job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.configure.html">prisms_jobs.configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.default_config_dict.html">prisms_jobs.default_config_dict</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.error_job.html">prisms_jobs.error_job</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.read_config.html">prisms_jobs.read_config</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">prisms_jobs.set_software</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.set_update_selection_method.html">prisms_jobs.set_update_selection_method</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-interface">prisms_jobs.interface</a></li>
@@ -182,33 +186,6 @@
             
   <div class="section" id="prisms-jobs-set-software">
 <h1>prisms_jobs.set_software<a class="headerlink" href="#prisms-jobs-set-software" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="prisms_jobs.set_software">
-<code class="descclassname">prisms_jobs.</code><code class="descname">set_software</code><span class="sig-paren">(</span><em>user_override=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs.html#set_software"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.set_software" title="Permalink to this definition">¶</a></dt>
-<dd><p>Import interface with job management software as module named <code class="docutils literal"><span class="pre">prisms_jobs.software</span></code></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>user_override</strong> (<em>str</em><em>, </em><em>optional</em><em>, </em><em>default=None</em>) – <p>By default, will attempt to automatically detect ‘torque’ (via ‘qstat’)
-or ‘slurm’ (via ‘sbatch’), or lets user override choice of module via
-the input argument or ‘PRISMS_JOBS_SOFTWARE’ environment variable. The
-options are:</p>
-<blockquote>
-<div><ul class="simple">
-<li>’torque’</li>
-<li>’slurm’</li>
-<li>Anything else will be treated as the name of an existing python module</li>
-</ul>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="prisms_jobs.JobDBError.html#prisms_jobs.JobDBError" title="prisms_jobs.JobDBError"><code class="xref py py-exc docutils literal"><span class="pre">prisms_jobs.JobDBError</span></code></a> – If ‘PRISMS_JOBS_SOFTWARE’ option is unrecognized</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
 
 
@@ -221,10 +198,10 @@ options are:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="prisms_jobs.interface.torque.html" class="btn btn-neutral float-right" title="prisms_jobs.interface.torque" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="prisms_jobs.set_update_selection_method.html" class="btn btn-neutral float-right" title="prisms_jobs.set_update_selection_method" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="prisms_jobs.error_job.html" class="btn btn-neutral" title="prisms_jobs.error_job" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="prisms_jobs.read_config.html" class="btn btn-neutral" title="prisms_jobs.read_config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

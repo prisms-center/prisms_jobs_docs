@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.JobDB &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>prisms_jobs.JobDB &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs.JobsError" href="prisms_jobs.JobsError.html"/>
         <link rel="prev" title="prisms_jobs.Job" href="prisms_jobs.Job.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -104,10 +104,10 @@
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.EligibilityError.html">prisms_jobs.EligibilityError</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.complete_job.html">prisms_jobs.complete_job</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.error_job.html">prisms_jobs.error_job</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.set_software.html">prisms_jobs.set_software</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-interface">prisms_jobs.interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-config">prisms_jobs.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-misc">prisms_jobs.misc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-templates">prisms_jobs.templates</a></li>
 </ul>
@@ -187,22 +187,14 @@
 <em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">JobDB</code><span class="sig-paren">(</span><em>dbpath=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>A primsms_jobs Job Database object</p>
+<p>Usually this is called without arguments (prisms_jobs.JobDB()) to open or
+create a database in the default location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dbpath</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Path to JobDB sqlite database.</p>
-<p>Usually this is called without arguments (prisms_jobs.JobDB()) to open or create a
-database in the default location.</p>
-<p>If dbpath is not given:
-* If the <code class="docutils literal"><span class="pre">PRISMS_JOBS_DB</span></code> environment variable exists, set dbpath to</p>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">$PRISMS_JOBS_DB/jobs.db</span></code></div></blockquote>
-<ul class="simple">
-<li>Else, set dbpath to “$HOME/.prisms_jobs/jobs.db”, where $HOME is the user’s
-home directory</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dbpath</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to JobDB sqlite database. By default,
+uses <code class="docutils literal"><span class="pre">prisms_jobs.config.dbpath()</span></code>.</td>
 </tr>
 </tbody>
 </table>
@@ -337,63 +329,6 @@ home directory</li>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__delattr__">
-<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__delattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__format__">
-<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__format__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default object formatter</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__getattribute__">
-<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.JobDB.__getattribute__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__hash__">
-<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.JobDB.__hash__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__reduce__">
-<code class="descname">__reduce__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__reduce__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__reduce_ex__">
-<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__repr__">
-<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__setattr__">
-<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__setattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__sizeof__">
-<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.JobDB.__sizeof__" title="Permalink to this definition">¶</a></dt>
-<dd><p>size of object in memory, in bytes</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__str__">
-<code class="descname">__str__</code><a class="headerlink" href="#prisms_jobs.JobDB.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="prisms_jobs.JobDB._print_full_record">
 <code class="descname">_print_full_record</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB._print_full_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB._print_full_record" title="Permalink to this definition">¶</a></dt>
@@ -496,10 +431,8 @@ Create <code class="docutils literal"><span class="pre">job_status</span></code>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>dbpath</strong> (<em>str</em>) – path to a JobDB database file.</li>
-<li><strong>dbpath is not given</strong> (<em>If</em>) – </li>
-<li><strong>If PRISMS_JOBS_DB environment variable exists</strong><strong>, </strong><strong>set dbpath to &quot;$PRISMS_JOBS_DB/jobs.db&quot; file.</strong> (<em>*</em>) – </li>
-<li><strong>Else</strong><strong>, </strong><strong>set dbpath to &quot;$HOME/.prisms_jobs/jobs.db&quot;</strong><strong>, </strong><strong>where $HOME is the user's home directory</strong> (<em>*</em>) – </li>
+<li><strong>dbpath</strong> (<em>str</em><em>, </em><em>optional</em>) – path to a JobDB database file. By default,</li>
+<li><strong>prisms_jobs.config.dbpath</strong><strong>(</strong><strong>)</strong><strong></strong> (<em>uses</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -986,7 +919,7 @@ in ‘self.untracked’.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

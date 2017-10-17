@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.Job &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>prisms_jobs.Job &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs.JobDB" href="prisms_jobs.JobDB.html"/>
         <link rel="prev" title="prisms_jobs documentation" href="index.html"/> 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -104,10 +104,10 @@
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.EligibilityError.html">prisms_jobs.EligibilityError</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.complete_job.html">prisms_jobs.complete_job</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prisms_jobs.error_job.html">prisms_jobs.error_job</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prisms_jobs.set_software.html">prisms_jobs.set_software</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-interface">prisms_jobs.interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-config">prisms_jobs.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-misc">prisms_jobs.misc</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#prisms-jobs-templates">prisms_jobs.templates</a></li>
 </ul>
@@ -354,81 +354,24 @@ it extra times leading to wasted resources and overwritten data.</p>
 <td></td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.Job.read" title="prisms_jobs.Job.read"><code class="xref py py-obj docutils literal"><span class="pre">read</span></code></a>(qsubstr)</td>
-<td>Set this Job object from string representing a submit script appropriate for the prisms_jobs.software.</td>
+<td>Set this Job object from string representing a submit script appropriate for the config.software().</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.script" title="prisms_jobs.Job.script"><code class="xref py py-obj docutils literal"><span class="pre">script</span></code></a>([filename])</td>
 <td>Write this Job as a bash script</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.Job.sub_string" title="prisms_jobs.Job.sub_string"><code class="xref py py-obj docutils literal"><span class="pre">sub_string</span></code></a>()</td>
-<td>Output Job as a string suitable for prisms_jobs.software</td>
+<td>Output Job as a string suitable for prisms_jobs.config.software()</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.submit" title="prisms_jobs.Job.submit"><code class="xref py py-obj docutils literal"><span class="pre">submit</span></code></a>([add,&nbsp;dbpath])</td>
-<td>Submit this Job using the appropriate command for prisms_jobs.software.</td>
+<td>Submit this Job using the appropriate command for prisms_jobs.config.software().</td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__delattr__">
-<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.Job.__delattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__format__">
-<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__format__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default object formatter</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__getattribute__">
-<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.Job.__getattribute__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__hash__">
-<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.Job.__hash__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__reduce__">
-<code class="descname">__reduce__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__reduce__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__reduce_ex__">
-<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__repr__">
-<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.Job.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__setattr__">
-<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.Job.__setattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__sizeof__">
-<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.Job.__sizeof__" title="Permalink to this definition">¶</a></dt>
-<dd><p>size of object in memory, in bytes</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__str__">
-<code class="descname">__str__</code><a class="headerlink" href="#prisms_jobs.Job.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="prisms_jobs.Job.read">
 <code class="descname">read</code><span class="sig-paren">(</span><em>qsubstr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set this Job object from string representing a submit script appropriate
-for the prisms_jobs.software.</p>
+for the config.software().</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -456,13 +399,13 @@ for the prisms_jobs.software.</p>
 <dl class="method">
 <dt id="prisms_jobs.Job.sub_string">
 <code class="descname">sub_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.sub_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.sub_string" title="Permalink to this definition">¶</a></dt>
-<dd><p>Output Job as a string suitable for prisms_jobs.software</p>
+<dd><p>Output Job as a string suitable for prisms_jobs.config.software()</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="prisms_jobs.Job.submit">
 <code class="descname">submit</code><span class="sig-paren">(</span><em>add=True</em>, <em>dbpath=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.submit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.submit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Submit this Job using the appropriate command for prisms_jobs.software.</p>
+<dd><p>Submit this Job using the appropriate command for prisms_jobs.config.software().</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -528,7 +471,7 @@ for the prisms_jobs.software.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

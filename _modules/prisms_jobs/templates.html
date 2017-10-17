@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.templates &mdash; prisms-jobs 3.0b0 documentation</title>
+  <title>prisms_jobs.templates &mdash; prisms-jobs 4.0.0 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="prisms-jobs 3.0b0 documentation" href="../../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../../index.html"/>
         <link rel="up" title="prisms_jobs" href="../prisms_jobs.html"/> 
 
   
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                3.0
+                4.0
               </div>
             
           
@@ -163,8 +163,11 @@
            <div itemprop="articleBody">
             
   <h1>Source code for prisms_jobs.templates</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">job</span><span class="o">,</span> <span class="nn">misc</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="p">(</span><span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="o">*</span>
+
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">prisms_jobs</span> <span class="k">import</span> <span class="n">job</span><span class="p">,</span> <span class="n">misc</span>
 
 <div class="viewcode-block" id="PrismsJob"><a class="viewcode-back" href="../../api/prisms_jobs.templates.PrismsJob.html#prisms_jobs.templates.PrismsJob">[docs]</a><span class="k">def</span> <span class="nf">PrismsJob</span><span class="p">(</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;STDIN&quot;</span><span class="p">,</span> \
                <span class="n">nodes</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> \
@@ -184,15 +187,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsJob(). Requested more than 1000 cores.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsJob(). Requested more than 1000 cores.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsJob(). Requested more than 16 ppn.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsJob(). Requested more than 16 ppn.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="n">misc</span><span class="o">.</span><span class="n">hours</span><span class="p">(</span><span class="n">walltime</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">48.0</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsJob(). Requested more than 48 hrs walltime.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsJob(). Requested more than 48 hrs walltime.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="n">j</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> \
@@ -230,15 +233,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in NonPrismsJob(). Requested more than 1000 cores.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in NonPrismsJob(). Requested more than 1000 cores.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in NonPrismsJob(). Requested more than 16 ppn.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in NonPrismsJob(). Requested more than 16 ppn.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="n">misc</span><span class="o">.</span><span class="n">hours</span><span class="p">(</span><span class="n">walltime</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">48.0</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in NonPrismsJob(). Requested more than 48 hrs walltime.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in NonPrismsJob(). Requested more than 48 hrs walltime.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="n">j</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> \
@@ -276,15 +279,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 1000 cores.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 1000 cores.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 16 ppn.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 16 ppn.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="n">misc</span><span class="o">.</span><span class="n">hours</span><span class="p">(</span><span class="n">walltime</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">48.0</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 48 hrs walltime.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 48 hrs walltime.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="n">j</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> \
@@ -321,15 +324,15 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span><span class="o">*</span><span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsDebugJob(). Requested more than 80 cores.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsDebugJob(). Requested more than 80 cores.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsDebugJob(). Requested more than 16 ppn.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsDebugJob(). Requested more than 16 ppn.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="k">if</span> <span class="n">misc</span><span class="o">.</span><span class="n">hours</span><span class="p">(</span><span class="n">walltime</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">6.0</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsDebugJob(). Requested more than 6 hrs walltime.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsDebugJob(). Requested more than 6 hrs walltime.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="n">j</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> \
@@ -370,7 +373,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">ppn</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">16</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 16 ppn.&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error in PrismsPriorityJob(). Requested more than 16 ppn.&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
     
     <span class="n">j</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">Job</span><span class="p">(</span> <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span> \
@@ -427,7 +430,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'3.0b0',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
