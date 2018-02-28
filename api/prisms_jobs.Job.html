@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.Job &mdash; prisms-jobs 4.0.0 documentation</title>
+  <title>prisms_jobs.Job &mdash; prisms-jobs 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs.JobDB" href="prisms_jobs.JobDB.html"/>
         <link rel="prev" title="prisms_jobs documentation" href="index.html"/> 
@@ -184,8 +184,8 @@
 <h1>prisms_jobs.Job<a class="headerlink" href="#prisms-jobs-job" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="prisms_jobs.Job">
-<em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">Job</code><span class="sig-paren">(</span><em>name='STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message='a'</em>, <em>email=None</em>, <em>priority='0'</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">Job</code><span class="sig-paren">(</span><em>name=u'STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message=u'a'</em>, <em>email=None</em>, <em>priority=u'0'</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">future.types.newobject.newobject</span></code></p>
 <p>Represents a computational job</p>
 <p>Initialize either with all the parameters, or with ‘substr’ a submit script as a string.
 If ‘substr’ is given, all other arguments are ignored.</p>
@@ -340,7 +340,7 @@ it extra times leading to wasted resources and overwritten data.</p>
 
 <dl class="method">
 <dt id="prisms_jobs.Job.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>name='STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message='a'</em>, <em>email=None</em>, <em>priority='0'</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name=u'STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message=u'a'</em>, <em>email=None</em>, <em>priority=u'0'</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -367,6 +367,63 @@ it extra times leading to wasted resources and overwritten data.</p>
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="prisms_jobs.Job.__delattr__">
+<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.Job.__delattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.Job.__format__">
+<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p>default object formatter</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.Job.__getattribute__">
+<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.Job.__getattribute__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.Job.__hash__">
+<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.Job.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.Job.__reduce__">
+<code class="descname">__reduce__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__reduce__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.Job.__reduce_ex__">
+<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.Job.__repr__">
+<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.Job.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.Job.__setattr__">
+<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.Job.__setattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.Job.__sizeof__">
+<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.Job.__sizeof__" title="Permalink to this definition">¶</a></dt>
+<dd><p>size of object in memory, in bytes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.Job.__str__">
+<code class="descname">__str__</code><a class="headerlink" href="#prisms_jobs.Job.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="prisms_jobs.Job.read">
 <code class="descname">read</code><span class="sig-paren">(</span><em>qsubstr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.read" title="Permalink to this definition">¶</a></dt>
@@ -384,7 +441,7 @@ for the config.software().</p>
 
 <dl class="method">
 <dt id="prisms_jobs.Job.script">
-<code class="descname">script</code><span class="sig-paren">(</span><em>filename='submit.sh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.script"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.script" title="Permalink to this definition">¶</a></dt>
+<code class="descname">script</code><span class="sig-paren">(</span><em>filename=u'submit.sh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.script"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.script" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write this Job as a bash script</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -471,7 +528,7 @@ for the config.software().</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

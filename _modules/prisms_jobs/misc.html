@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.misc &mdash; prisms-jobs 4.0.0 documentation</title>
+  <title>prisms_jobs.misc &mdash; prisms-jobs 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../../genindex.html"/>
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../../index.html"/>
         <link rel="up" title="prisms_jobs" href="../prisms_jobs.html"/> 
 
   
@@ -169,6 +169,7 @@
 
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pwd</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -226,11 +227,9 @@
 <div class="viewcode-block" id="getlogin"><a class="viewcode-back" href="../../api/prisms_jobs.misc.getlogin.html#prisms_jobs.misc.getlogin">[docs]</a><span class="k">def</span> <span class="nf">getlogin</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Returns os.getlogin(), else os.environ[&quot;LOGNAME&quot;], else &quot;?&quot; &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getlogin</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;LOGNAME&quot;</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;?&quot;</span></div>
+        <span class="k">return</span> <span class="n">pwd</span><span class="o">.</span><span class="n">getpwuid</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getuid</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;LOGNAME&quot;</span><span class="p">,</span><span class="s2">&quot;?&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="seconds"><a class="viewcode-back" href="../../api/prisms_jobs.misc.seconds.html#prisms_jobs.misc.seconds">[docs]</a><span class="k">def</span> <span class="nf">seconds</span><span class="p">(</span><span class="n">walltime</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Convert [[[DD:]HH:]MM:]SS to hours&quot;&quot;&quot;</span>
@@ -330,7 +329,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'4.0.0',
+            VERSION:'4.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

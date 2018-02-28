@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pstat &mdash; prisms-jobs 4.0.0 documentation</title>
+  <title>pstat &mdash; prisms-jobs 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Command line scripts documentation" href="index.html"/>
         <link rel="next" title="psub" href="psub.html"/>
         <link rel="prev" title="Command line scripts documentation" href="index.html"/> 
@@ -203,55 +203,6 @@
 </div>
 <div class="section" id="help-documentation">
 <h2><code class="docutils literal"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
-<p><p>Print or modify <cite>prisms-jobs</cite> job and task status.</p>
-<p>By default, ‘pstat’ prints status for select jobs. Jobs are
-selected by listing jobids or using –all, –range, or
-–recent, optionally combined with –active. Running ‘pstat’
-with no selection is equivalent to selecting ‘–all –active’.
-The default display style is a summary list. Other options are
-–full or –series.</p>
-<p>Using one of –complete, –continue, –error, –abort, or
-–delete modifies status instead of printing. User
-confirmation is required before a modification is applied,
-unless the –force option is given.</p>
-<p>Job status is as given by <cite>prisms-jobs</cite> for a single job (‘C’, ‘R’,
-‘Q’, etc.).</p>
-<p>Task status is user-defined and defines the status of a single
-job within a possible series of jobs comprising some task.
-‘Auto’ jobs may be re-submitted with the –continue option.</p>
-<p>Jobs are marked ‘auto’ either by submitting through the python 
-class <code class="docutils literal"><span class="pre">prisms_jobs.Job</span></code> with the attribute <code class="docutils literal"><span class="pre">auto=True</span></code>, or 
-by submitting a script which contains the line <code class="docutils literal"><span class="pre">#auto=True</span></code> 
-via <code class="docutils literal"><span class="pre">psub</span></code>.</p>
-<p>Possible values for task status are:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>”Complete”</td>
-<td>Job and task are complete.</td>
-</tr>
-<tr class="row-even"><td>”Incomplete”</td>
-<td>Job or task are incomplete.</td>
-</tr>
-<tr class="row-odd"><td>”Continued”</td>
-<td>Job is complete, but task was not complete.</td>
-</tr>
-<tr class="row-even"><td>”Check”</td>
-<td>Non-auto job is complete and requires user
-input for status.</td>
-</tr>
-<tr class="row-odd"><td>”Error:.*”</td>
-<td>Some kind of error was noted.</td>
-</tr>
-<tr class="row-even"><td>”Aborted”</td>
-<td>The job and task have been aborted.</td>
-</tr>
-</tbody>
-</table>
-</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">pstat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">|</span> <span class="o">-</span><span class="n">s</span><span class="p">]</span>
              <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="o">|</span> <span class="o">--</span><span class="nb">range</span> <span class="n">MINID</span> <span class="n">MAXID</span> <span class="o">|</span> <span class="o">--</span><span class="n">recent</span> <span class="n">DD</span><span class="p">:</span><span class="n">HH</span><span class="p">:</span><span class="n">MM</span><span class="p">:</span><span class="n">SS</span> <span class="o">|</span> <span class="o">--</span><span class="n">regex</span> <span class="n">KEY</span> <span class="n">REGEX</span><span class="p">]</span>
              <span class="p">[</span><span class="o">--</span><span class="n">active</span><span class="p">]</span>
@@ -393,7 +344,7 @@ input for status.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

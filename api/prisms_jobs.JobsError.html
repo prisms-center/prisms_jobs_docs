@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.JobsError &mdash; prisms-jobs 4.0.0 documentation</title>
+  <title>prisms_jobs.JobsError &mdash; prisms-jobs 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs.JobDBError" href="prisms_jobs.JobDBError.html"/>
         <link rel="prev" title="prisms_jobs.JobDB" href="prisms_jobs.JobDB.html"/> 
@@ -185,13 +185,65 @@
 <dl class="exception">
 <dt id="prisms_jobs.JobsError">
 <em class="property">exception </em><code class="descclassname">prisms_jobs.</code><code class="descname">JobsError</code><span class="sig-paren">(</span><em>jobid</em>, <em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs.html#JobsError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobsError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
 <p>A custom error class for prisms_jobs errors</p>
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__delattr__">
+<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.JobsError.__delattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
+</dd></dl>
+
 <dl class="method">
-<dt id="prisms_jobs.JobsError.with_traceback">
-<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobsError.with_traceback" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exception.with_traceback(tb) –
-set self.__traceback__ to tb and return self.</p>
+<dt id="prisms_jobs.JobsError.__format__">
+<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobsError.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p>default object formatter</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__getattribute__">
+<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.JobsError.__getattribute__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__getitem__">
+<code class="descname">__getitem__</code><a class="headerlink" href="#prisms_jobs.JobsError.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__getitem__(y) &lt;==&gt; x[y]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__getslice__">
+<code class="descname">__getslice__</code><a class="headerlink" href="#prisms_jobs.JobsError.__getslice__" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>x.__getslice__(i, j) &lt;==&gt; x[i</em> – j]</p>
+<p>Use of negative indices is not supported.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__hash__">
+<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.JobsError.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.JobsError.__reduce_ex__">
+<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobsError.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__repr__">
+<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.JobsError.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobsError.__setattr__">
+<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.JobsError.__setattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.JobsError.__sizeof__">
+<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.JobsError.__sizeof__" title="Permalink to this definition">¶</a></dt>
+<dd><p>size of object in memory, in bytes</p>
 </dd></dl>
 
 </dd></dl>
@@ -242,7 +294,7 @@ set self.__traceback__ to tb and return self.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

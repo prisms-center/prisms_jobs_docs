@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>taskmaster &mdash; prisms-jobs 4.0.0 documentation</title>
+  <title>taskmaster &mdash; prisms-jobs 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Command line scripts documentation" href="index.html"/>
         <link rel="next" title="Getting help" href="../help.html"/>
         <link rel="prev" title="psub" href="psub.html"/> 
@@ -191,15 +191,6 @@ compute resources allow this behavior, remember check the policy prior to using
 </div>
 <div class="section" id="help-documentation">
 <h2><code class="docutils literal"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
-<p><p>Automatically resubmit jobs.</p>
-<p>’taskmaster’ submits itself with instructions to be run after an amount of time
-specified by –delay (default=15:00). When it runs, it continues all auto
-prisms_jobs jobs in the database that are incomplete and then re-submits itself
-to execute again after the specified delay.</p>
-<p>The specifics of ‘taskmaster’ submission can be customized by editing the 
-‘taskmaster_job_kwargs’ object in the prisms_jobs configuration file:
-<code class="docutils literal"><span class="pre">$PRISMS_JOBS_DIR/config.json</span></code>.</p>
-</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">taskmaster</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">DELAY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">hold</span> <span class="o">|</span> <span class="o">--</span><span class="n">release</span> <span class="o">|</span> <span class="o">--</span><span class="n">kill</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -212,7 +203,7 @@ to execute again after the specified delay.</p>
 <tr><td class="option-group">
 <kbd>-d, --delay</kbd></td>
 <td><p class="first">How long to delay (“[[[DD:]HH:]MM:]SS”) between executions.  Default is “15:00”.</p>
-<p class="last">Default: “15:00”</p>
+<p class="last">Default: 15:00</p>
 </td></tr>
 <tr><td class="option-group">
 <kbd>--hold</kbd></td>
@@ -280,7 +271,7 @@ to execute again after the specified delay.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

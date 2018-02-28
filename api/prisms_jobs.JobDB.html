@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>prisms_jobs.JobDB &mdash; prisms-jobs 4.0.0 documentation</title>
+  <title>prisms_jobs.JobDB &mdash; prisms-jobs 4.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
         <link rel="up" title="prisms_jobs documentation" href="index.html"/>
         <link rel="next" title="prisms_jobs.JobsError" href="prisms_jobs.JobsError.html"/>
         <link rel="prev" title="prisms_jobs.Job" href="prisms_jobs.Job.html"/> 
@@ -185,7 +185,7 @@
 <dl class="class">
 <dt id="prisms_jobs.JobDB">
 <em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">JobDB</code><span class="sig-paren">(</span><em>dbpath=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">future.types.newobject.newobject</span></code></p>
 <p>A primsms_jobs Job Database object</p>
 <p>Usually this is called without arguments (prisms_jobs.JobDB()) to open or
 create a database in the default location.</p>
@@ -329,6 +329,63 @@ uses <code class="docutils literal"><span class="pre">prisms_jobs.config.dbpath(
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="prisms_jobs.JobDB.__delattr__">
+<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__delattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.JobDB.__format__">
+<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p>default object formatter</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobDB.__getattribute__">
+<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.JobDB.__getattribute__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobDB.__hash__">
+<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.JobDB.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.JobDB.__reduce__">
+<code class="descname">__reduce__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__reduce__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.JobDB.__reduce_ex__">
+<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobDB.__repr__">
+<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobDB.__setattr__">
+<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__setattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="prisms_jobs.JobDB.__sizeof__">
+<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.JobDB.__sizeof__" title="Permalink to this definition">¶</a></dt>
+<dd><p>size of object in memory, in bytes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.JobDB.__str__">
+<code class="descname">__str__</code><a class="headerlink" href="#prisms_jobs.JobDB.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="prisms_jobs.JobDB._print_full_record">
 <code class="descname">_print_full_record</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB._print_full_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB._print_full_record" title="Permalink to this definition">¶</a></dt>
@@ -919,7 +976,7 @@ in ‘self.untracked’.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.0.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
