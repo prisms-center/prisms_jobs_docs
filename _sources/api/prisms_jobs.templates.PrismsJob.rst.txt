@@ -1,5 +1,5 @@
-prisms\_jobs\.templates\.PrismsJob
-==================================
+prisms\_jobs.templates.PrismsJob
+================================
 
 .. currentmodule:: prisms_jobs.templates
 

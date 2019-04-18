@@ -1,5 +1,5 @@
-prisms\_jobs\.interface\.torque
-===============================
+prisms\_jobs.interface.torque
+=============================
 
 .. automodule:: prisms_jobs.interface.torque
 

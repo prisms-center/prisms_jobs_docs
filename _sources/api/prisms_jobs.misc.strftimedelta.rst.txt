@@ -1,5 +1,5 @@
-prisms\_jobs\.misc\.strftimedelta
-=================================
+prisms\_jobs.misc.strftimedelta
+===============================
 
 .. currentmodule:: prisms_jobs.misc
 

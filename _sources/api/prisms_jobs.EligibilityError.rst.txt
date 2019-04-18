@@ -1,5 +1,5 @@
-prisms\_jobs\.EligibilityError
-==============================
+prisms\_jobs.EligibilityError
+=============================
 
 .. currentmodule:: prisms_jobs
 

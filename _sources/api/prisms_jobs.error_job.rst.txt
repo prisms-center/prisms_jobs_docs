@@ -1,5 +1,5 @@
-prisms\_jobs\.error\_job
-========================
+prisms\_jobs.error\_job
+=======================
 
 .. currentmodule:: prisms_jobs
 

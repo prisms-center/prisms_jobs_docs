@@ -1,5 +1,5 @@
-prisms\_jobs\.misc\.hours
-=========================
+prisms\_jobs.misc.hours
+=======================
 
 .. currentmodule:: prisms_jobs.misc
 

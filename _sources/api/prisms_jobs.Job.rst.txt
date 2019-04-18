@@ -1,5 +1,5 @@
-prisms\_jobs\.Job
-=================
+prisms\_jobs.Job
+================
 
 .. currentmodule:: prisms_jobs
 

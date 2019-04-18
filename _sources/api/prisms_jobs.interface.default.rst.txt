@@ -1,5 +1,5 @@
-prisms\_jobs\.interface\.default
-================================
+prisms\_jobs.interface.default
+==============================
 
 .. automodule:: prisms_jobs.interface.default
 

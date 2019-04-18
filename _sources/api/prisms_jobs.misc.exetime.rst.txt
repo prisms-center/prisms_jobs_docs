@@ -1,5 +1,5 @@
-prisms\_jobs\.misc\.exetime
-===========================
+prisms\_jobs.misc.exetime
+=========================
 
 .. currentmodule:: prisms_jobs.misc
 

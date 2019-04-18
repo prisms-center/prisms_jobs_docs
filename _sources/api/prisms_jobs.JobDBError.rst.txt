@@ -1,5 +1,5 @@
-prisms\_jobs\.JobDBError
-========================
+prisms\_jobs.JobDBError
+=======================
 
 .. currentmodule:: prisms_jobs
 
