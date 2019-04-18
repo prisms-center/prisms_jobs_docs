@@ -17,43 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Command line scripts documentation" href="index.html"/>
-        <link rel="next" title="Getting help" href="../help.html"/>
-        <link rel="prev" title="psub" href="psub.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting help" href="../help.html" />
+    <link rel="prev" title="psub" href="psub.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -97,11 +90,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">prisms_jobs documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Command line scripts documentation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="pstat.html"><code class="docutils literal"><span class="pre">pstat</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="psub.html"><code class="docutils literal"><span class="pre">psub</span></code></a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">taskmaster</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pstat.html"><code class="docutils literal notranslate"><span class="pre">pstat</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="psub.html"><code class="docutils literal notranslate"><span class="pre">psub</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">taskmaster</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#summary">Summary:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#help-documentation"><code class="docutils literal"><span class="pre">--help</span></code> documentation:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#help-documentation"><code class="docutils literal notranslate"><span class="pre">--help</span></code> documentation:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
 </ul>
 </li>
@@ -122,7 +115,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">prisms-jobs</a>
@@ -130,9 +123,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -157,7 +151,7 @@
         
           <li><a href="index.html">Command line scripts documentation</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">taskmaster</span></code></li>
+      <li><code class="docutils literal notranslate"><span class="pre">taskmaster</span></code></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -177,21 +171,30 @@
            <div itemprop="articleBody">
             
   <div class="section" id="taskmaster">
-<h1><code class="docutils literal"><span class="pre">taskmaster</span></code><a class="headerlink" href="#taskmaster" title="Permalink to this headline">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">taskmaster</span></code><a class="headerlink" href="#taskmaster" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="summary">
 <h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">taskmaster</span></code> submits a job that will repeatedly resubmit any <code class="docutils literal"><span class="pre">Auto</span></code> jobs in
-the job database that have completed but whose taskstatus is still <code class="docutils literal"><span class="pre">'Incomplete'</span></code>
+<p><code class="docutils literal notranslate"><span class="pre">taskmaster</span></code> submits a job that will repeatedly resubmit any <code class="docutils literal notranslate"><span class="pre">Auto</span></code> jobs in
+the job database that have completed but whose taskstatus is still <code class="docutils literal notranslate"><span class="pre">'Incomplete'</span></code>
 (perhaps because the jobs has hit the walltime before completing or failed to
 converge) and then resubmit itself with a delay before execution. As not all
 compute resources allow this behavior, remember check the policy prior to using
-<code class="docutils literal"><span class="pre">taskmaster</span></code> on a new compute resource.</p>
-<p>The job submission options can be customized by editing the <code class="docutils literal"><span class="pre">prisms-jobs</span></code>
+<code class="docutils literal notranslate"><span class="pre">taskmaster</span></code> on a new compute resource.</p>
+<p>The job submission options can be customized by editing the <code class="docutils literal notranslate"><span class="pre">prisms-jobs</span></code>
 <a class="reference internal" href="#configuration-file">configuration file</a>.</p>
 </div>
 <div class="section" id="help-documentation">
-<h2><code class="docutils literal"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">taskmaster</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">DELAY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">hold</span> <span class="o">|</span> <span class="o">--</span><span class="n">release</span> <span class="o">|</span> <span class="o">--</span><span class="n">kill</span><span class="p">]</span>
+<h2><code class="docutils literal notranslate"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
+<p><p>Automatically resubmit jobs.</p>
+<p>’taskmaster’ submits itself with instructions to be run after an amount of time
+specified by –delay (default=15:00). When it runs, it continues all auto
+prisms_jobs jobs in the database that are incomplete and then re-submits itself
+to execute again after the specified delay.</p>
+<p>The specifics of ‘taskmaster’ submission can be customized by editing the 
+‘taskmaster_job_kwargs’ object in the prisms_jobs configuration file:
+<code class="docutils literal notranslate"><span class="pre">$PRISMS_JOBS_DIR/config.json</span></code>.</p>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">taskmaster</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">d</span> <span class="n">DELAY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">hold</span> <span class="o">|</span> <span class="o">--</span><span class="n">release</span> <span class="o">|</span> <span class="o">--</span><span class="n">kill</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="section" id="Named Arguments">
@@ -203,7 +206,7 @@ compute resources allow this behavior, remember check the policy prior to using
 <tr><td class="option-group">
 <kbd>-d, --delay</kbd></td>
 <td><p class="first">How long to delay (“[[[DD:]HH:]MM:]SS”) between executions.  Default is “15:00”.</p>
-<p class="last">Default: 15:00</p>
+<p class="last">Default: “15:00”</p>
 </td></tr>
 <tr><td class="option-group">
 <kbd>--hold</kbd></td>
@@ -229,9 +232,7 @@ compute resources allow this behavior, remember check the policy prior to using
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -240,7 +241,7 @@ compute resources allow this behavior, remember check the policy prior to using
         <a href="../help.html" class="btn btn-neutral float-right" title="Getting help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="psub.html" class="btn btn-neutral" title="psub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="psub.html" class="btn btn-neutral float-left" title="psub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -249,11 +250,11 @@ compute resources allow this behavior, remember check the policy prior to using
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -266,36 +267,15 @@ compute resources allow this behavior, remember check the policy prior to using
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

@@ -17,43 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
-        <link rel="up" title="prisms_jobs documentation" href="index.html"/>
-        <link rel="next" title="prisms_jobs.JobsError" href="prisms_jobs.JobsError.html"/>
-        <link rel="prev" title="prisms_jobs.Job" href="prisms_jobs.Job.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="prisms_jobs.JobsError" href="prisms_jobs.JobsError.html" />
+    <link rel="prev" title="prisms_jobs.Job" href="prisms_jobs.Job.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -126,7 +119,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">prisms-jobs</a>
@@ -134,9 +127,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -185,7 +179,7 @@
 <dl class="class">
 <dt id="prisms_jobs.JobDB">
 <em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">JobDB</code><span class="sig-paren">(</span><em>dbpath=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">future.types.newobject.newobject</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A primsms_jobs Job Database object</p>
 <p>Usually this is called without arguments (prisms_jobs.JobDB()) to open or
 create a database in the default location.</p>
@@ -194,14 +188,15 @@ create a database in the default location.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dbpath</strong> (<em>str</em><em>, </em><em>optional</em>) – Path to JobDB sqlite database. By default,
-uses <code class="docutils literal"><span class="pre">prisms_jobs.config.dbpath()</span></code>.</td>
+uses <code class="docutils literal notranslate"><span class="pre">prisms_jobs.config.dbpath()</span></code>.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="prisms_jobs.JobDB.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><em>dbpath=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -210,182 +205,125 @@ uses <code class="docutils literal"><span class="pre">prisms_jobs.config.dbpath(
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.__init__" title="prisms_jobs.JobDB.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([dbpath])</td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.__init__" title="prisms_jobs.JobDB.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([dbpath])</td>
+<td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.abort_job" title="prisms_jobs.JobDB.abort_job"><code class="xref py py-obj docutils literal"><span class="pre">abort_job</span></code></a>([jobid,&nbsp;job])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.abort_job" title="prisms_jobs.JobDB.abort_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abort_job</span></code></a>([jobid,&nbsp;job])</td>
 <td>Delete a job and mark job taskstatus as Aborted</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.add" title="prisms_jobs.JobDB.add"><code class="xref py py-obj docutils literal"><span class="pre">add</span></code></a>(job_status)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.add" title="prisms_jobs.JobDB.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(job_status)</td>
 <td>Add a record to the jobs database.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.close" title="prisms_jobs.JobDB.close"><code class="xref py py-obj docutils literal"><span class="pre">close</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.close" title="prisms_jobs.JobDB.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a>()</td>
 <td>Close the connection to the jobs database.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.complete_job" title="prisms_jobs.JobDB.complete_job"><code class="xref py py-obj docutils literal"><span class="pre">complete_job</span></code></a>([jobid,&nbsp;job])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.complete_job" title="prisms_jobs.JobDB.complete_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">complete_job</span></code></a>([jobid,&nbsp;job])</td>
 <td>Mark job taskstatus as ‘Complete’</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.connect" title="prisms_jobs.JobDB.connect"><code class="xref py py-obj docutils literal"><span class="pre">connect</span></code></a>([dbpath])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.connect" title="prisms_jobs.JobDB.connect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">connect</span></code></a>([dbpath])</td>
 <td>Open a connection to the jobs database.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.continue_all" title="prisms_jobs.JobDB.continue_all"><code class="xref py py-obj docutils literal"><span class="pre">continue_all</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.continue_all" title="prisms_jobs.JobDB.continue_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">continue_all</span></code></a>()</td>
 <td>Resubmit all jobs eligible to continue</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.continue_job" title="prisms_jobs.JobDB.continue_job"><code class="xref py py-obj docutils literal"><span class="pre">continue_job</span></code></a>([jobid,&nbsp;job])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.continue_job" title="prisms_jobs.JobDB.continue_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">continue_job</span></code></a>([jobid,&nbsp;job])</td>
 <td>Resubmit one job with given jobid.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.delete_job" title="prisms_jobs.JobDB.delete_job"><code class="xref py py-obj docutils literal"><span class="pre">delete_job</span></code></a>([jobid,&nbsp;job,&nbsp;series])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.delete_job" title="prisms_jobs.JobDB.delete_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delete_job</span></code></a>([jobid,&nbsp;job,&nbsp;series])</td>
 <td>Delete job if running, and delete job from the database.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_abort" title="prisms_jobs.JobDB.eligible_to_abort"><code class="xref py py-obj docutils literal"><span class="pre">eligible_to_abort</span></code></a>(job)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_abort" title="prisms_jobs.JobDB.eligible_to_abort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eligible_to_abort</span></code></a>(job)</td>
 <td>Check if job is eligible to be aborted</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_complete" title="prisms_jobs.JobDB.eligible_to_complete"><code class="xref py py-obj docutils literal"><span class="pre">eligible_to_complete</span></code></a>(job)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_complete" title="prisms_jobs.JobDB.eligible_to_complete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eligible_to_complete</span></code></a>(job)</td>
 <td>Check if job is eligible to be completed</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_continue" title="prisms_jobs.JobDB.eligible_to_continue"><code class="xref py py-obj docutils literal"><span class="pre">eligible_to_continue</span></code></a>(job)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_continue" title="prisms_jobs.JobDB.eligible_to_continue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eligible_to_continue</span></code></a>(job)</td>
 <td>Return True if job is eligible to be continued, else return False</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_delete" title="prisms_jobs.JobDB.eligible_to_delete"><code class="xref py py-obj docutils literal"><span class="pre">eligible_to_delete</span></code></a>(job)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_delete" title="prisms_jobs.JobDB.eligible_to_delete"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eligible_to_delete</span></code></a>(job)</td>
 <td>Check if job is eligible to be aborted</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_error" title="prisms_jobs.JobDB.eligible_to_error"><code class="xref py py-obj docutils literal"><span class="pre">eligible_to_error</span></code></a>(job)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_error" title="prisms_jobs.JobDB.eligible_to_error"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eligible_to_error</span></code></a>(job)</td>
 <td>Check if job is eligible to be marked as error</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_reset" title="prisms_jobs.JobDB.eligible_to_reset"><code class="xref py py-obj docutils literal"><span class="pre">eligible_to_reset</span></code></a>(job)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.eligible_to_reset" title="prisms_jobs.JobDB.eligible_to_reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eligible_to_reset</span></code></a>(job)</td>
 <td>Check if job is eligible to be reset</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.error_job" title="prisms_jobs.JobDB.error_job"><code class="xref py py-obj docutils literal"><span class="pre">error_job</span></code></a>(message[,&nbsp;jobid,&nbsp;job])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.error_job" title="prisms_jobs.JobDB.error_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">error_job</span></code></a>(message[,&nbsp;jobid,&nbsp;job])</td>
 <td>Mark job taskstatus as ‘Error: message’</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_active" title="prisms_jobs.JobDB.print_active"><code class="xref py py-obj docutils literal"><span class="pre">print_active</span></code></a>([full,&nbsp;series])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_active" title="prisms_jobs.JobDB.print_active"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_active</span></code></a>([full,&nbsp;series])</td>
 <td>Print active jobs</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_all" title="prisms_jobs.JobDB.print_all"><code class="xref py py-obj docutils literal"><span class="pre">print_all</span></code></a>([full,&nbsp;series])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_all" title="prisms_jobs.JobDB.print_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_all</span></code></a>([full,&nbsp;series])</td>
 <td>Print all jobs</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_header" title="prisms_jobs.JobDB.print_header"><code class="xref py py-obj docutils literal"><span class="pre">print_header</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_header" title="prisms_jobs.JobDB.print_header"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_header</span></code></a>()</td>
 <td>Print header rows for record summary</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_job" title="prisms_jobs.JobDB.print_job"><code class="xref py py-obj docutils literal"><span class="pre">print_job</span></code></a>([jobid,&nbsp;job,&nbsp;full,&nbsp;series])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_job" title="prisms_jobs.JobDB.print_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_job</span></code></a>([jobid,&nbsp;job,&nbsp;full,&nbsp;series])</td>
 <td>Print job with given jobid</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_selected" title="prisms_jobs.JobDB.print_selected"><code class="xref py py-obj docutils literal"><span class="pre">print_selected</span></code></a>([curs,&nbsp;full,&nbsp;series])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_selected" title="prisms_jobs.JobDB.print_selected"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_selected</span></code></a>([curs,&nbsp;full,&nbsp;series])</td>
 <td>Fetch and print jobs selected with SQL SELECT statement using cursor ‘curs’.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_untracked" title="prisms_jobs.JobDB.print_untracked"><code class="xref py py-obj docutils literal"><span class="pre">print_untracked</span></code></a>([full])</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.print_untracked" title="prisms_jobs.JobDB.print_untracked"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_untracked</span></code></a>([full])</td>
 <td>Print untracked jobs.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.reset_job" title="prisms_jobs.JobDB.reset_job"><code class="xref py py-obj docutils literal"><span class="pre">reset_job</span></code></a>([jobid,&nbsp;job])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.reset_job" title="prisms_jobs.JobDB.reset_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_job</span></code></a>([jobid,&nbsp;job])</td>
 <td>Mark job taskstatus as ‘Incomplete’</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_active_series_id" title="prisms_jobs.JobDB.select_active_series_id"><code class="xref py py-obj docutils literal"><span class="pre">select_active_series_id</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_active_series_id" title="prisms_jobs.JobDB.select_active_series_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_active_series_id</span></code></a>()</td>
 <td>Return a list of lists of jobids (one list for each active series).</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_all_active_id" title="prisms_jobs.JobDB.select_all_active_id"><code class="xref py py-obj docutils literal"><span class="pre">select_all_active_id</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_all_active_id" title="prisms_jobs.JobDB.select_all_active_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_all_active_id</span></code></a>()</td>
 <td>Return a list with all active jobids.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_all_id" title="prisms_jobs.JobDB.select_all_id"><code class="xref py py-obj docutils literal"><span class="pre">select_all_id</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_all_id" title="prisms_jobs.JobDB.select_all_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_all_id</span></code></a>()</td>
 <td>Return a list with all jobids.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_all_series_id" title="prisms_jobs.JobDB.select_all_series_id"><code class="xref py py-obj docutils literal"><span class="pre">select_all_series_id</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_all_series_id" title="prisms_jobs.JobDB.select_all_series_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_all_series_id</span></code></a>()</td>
 <td>Return a list of lists of jobids (one list for each series).</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_child" title="prisms_jobs.JobDB.select_child"><code class="xref py py-obj docutils literal"><span class="pre">select_child</span></code></a>(jobid)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_child" title="prisms_jobs.JobDB.select_child"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_child</span></code></a>(jobid)</td>
 <td>Return record for the child of a job</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_job" title="prisms_jobs.JobDB.select_job"><code class="xref py py-obj docutils literal"><span class="pre">select_job</span></code></a>(jobid)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_job" title="prisms_jobs.JobDB.select_job"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_job</span></code></a>(jobid)</td>
 <td>Return record (sqlite3.Row object) for one job with given jobid.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_parent" title="prisms_jobs.JobDB.select_parent"><code class="xref py py-obj docutils literal"><span class="pre">select_parent</span></code></a>(jobid)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_parent" title="prisms_jobs.JobDB.select_parent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_parent</span></code></a>(jobid)</td>
 <td>Return record for the parent of a job</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_range_id" title="prisms_jobs.JobDB.select_range_id"><code class="xref py py-obj docutils literal"><span class="pre">select_range_id</span></code></a>(min_jobid,&nbsp;max_jobid)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_range_id" title="prisms_jobs.JobDB.select_range_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_range_id</span></code></a>(min_jobid,&nbsp;max_jobid)</td>
 <td>Return a list of all jobids which are between (and including) min_jobid and max_jobid.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_range_series_id" title="prisms_jobs.JobDB.select_range_series_id"><code class="xref py py-obj docutils literal"><span class="pre">select_range_series_id</span></code></a>(min_jobid,&nbsp;max_jobid)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_range_series_id" title="prisms_jobs.JobDB.select_range_series_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_range_series_id</span></code></a>(min_jobid,&nbsp;max_jobid)</td>
 <td>Return a list of lists of all jobids for series (one list for each series) which have the last job between (and including) min_jobid and max_jobid.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_recent_id" title="prisms_jobs.JobDB.select_recent_id"><code class="xref py py-obj docutils literal"><span class="pre">select_recent_id</span></code></a>(recent_time)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_recent_id" title="prisms_jobs.JobDB.select_recent_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_recent_id</span></code></a>(recent_time)</td>
 <td>Return a list of all jobids which were modified in the last ‘recent_time’</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_recent_series_id" title="prisms_jobs.JobDB.select_recent_series_id"><code class="xref py py-obj docutils literal"><span class="pre">select_recent_series_id</span></code></a>(recent_time)</td>
-<td>Return a list of lists of jobids (one for each series) which were</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_recent_series_id" title="prisms_jobs.JobDB.select_recent_series_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_recent_series_id</span></code></a>(recent_time)</td>
+<td>Return a list of lists of jobids (one for each series) which were modified in the last ‘recent_time’</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_regex_id" title="prisms_jobs.JobDB.select_regex_id"><code class="xref py py-obj docutils literal"><span class="pre">select_regex_id</span></code></a>(key,&nbsp;regex)</td>
-<td>Return a list of all jobids in which the column ‘key’ matches the</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_regex_id" title="prisms_jobs.JobDB.select_regex_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_regex_id</span></code></a>(key,&nbsp;regex)</td>
+<td>Return a list of all jobids in which the column ‘key’ matches the regular expression ‘regex’</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_regex_series_id" title="prisms_jobs.JobDB.select_regex_series_id"><code class="xref py py-obj docutils literal"><span class="pre">select_regex_series_id</span></code></a>(key,&nbsp;regex)</td>
-<td>Return a list of lists of jobids (one for each series) in which the column</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_regex_series_id" title="prisms_jobs.JobDB.select_regex_series_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_regex_series_id</span></code></a>(key,&nbsp;regex)</td>
+<td>Return a list of lists of jobids (one for each series) in which the column ‘key’ matches the regular expression ‘regex’</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_series" title="prisms_jobs.JobDB.select_series"><code class="xref py py-obj docutils literal"><span class="pre">select_series</span></code></a>(jobid)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_series" title="prisms_jobs.JobDB.select_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_series</span></code></a>(jobid)</td>
 <td>Return records (sqlite3.Row objects) for a series of auto jobs</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_series_id" title="prisms_jobs.JobDB.select_series_id"><code class="xref py py-obj docutils literal"><span class="pre">select_series_id</span></code></a>(jobid)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.JobDB.select_series_id" title="prisms_jobs.JobDB.select_series_id"><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_series_id</span></code></a>(jobid)</td>
 <td>Return a list with all jobids for a series of auto jobs.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.update" title="prisms_jobs.JobDB.update"><code class="xref py py-obj docutils literal"><span class="pre">update</span></code></a>()</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.JobDB.update" title="prisms_jobs.JobDB.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">update</span></code></a>()</td>
 <td>Update records using qstat.</td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__delattr__">
-<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__delattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__format__">
-<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__format__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default object formatter</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__getattribute__">
-<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.JobDB.__getattribute__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__hash__">
-<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.JobDB.__hash__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__reduce__">
-<code class="descname">__reduce__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__reduce__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__reduce_ex__">
-<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.JobDB.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__repr__">
-<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__setattr__">
-<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.JobDB.__setattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.JobDB.__sizeof__">
-<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.JobDB.__sizeof__" title="Permalink to this definition">¶</a></dt>
-<dd><p>size of object in memory, in bytes</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.JobDB.__str__">
-<code class="descname">__str__</code><a class="headerlink" href="#prisms_jobs.JobDB.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="prisms_jobs.JobDB._print_full_record">
 <code class="descname">_print_full_record</code><span class="sig-paren">(</span><em>r</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/jobdb.html#JobDB._print_full_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.JobDB._print_full_record" title="Permalink to this definition">¶</a></dt>
@@ -446,7 +384,7 @@ uses <code class="docutils literal"><span class="pre">prisms_jobs.config.dbpath(
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>job_status</strong> (<em>dict</em>) – Accepts a dictionary of data comprising the record.
-Create <code class="docutils literal"><span class="pre">job_status</span></code> using prisms_jobs.jobdb.job_status_dict().</td>
+Create <code class="docutils literal notranslate"><span class="pre">job_status</span></code> using prisms_jobs.jobdb.job_status_dict().</td>
 </tr>
 </tbody>
 </table>
@@ -472,7 +410,7 @@ Create <code class="docutils literal"><span class="pre">job_status</span></code>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.EligibilityError.html#prisms_jobs.EligibilityError" title="prisms_jobs.EligibilityError"><code class="xref py py-exc docutils literal"><span class="pre">prisms_jobs.EligibilityError</span></code></a> – If not job not eligible to be marked ‘Complete’</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.EligibilityError.html#prisms_jobs.EligibilityError" title="prisms_jobs.EligibilityError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">prisms_jobs.EligibilityError</span></code></a> – If not job not eligible to be marked ‘Complete’</p>
 </td>
 </tr>
 </tbody>
@@ -811,7 +749,7 @@ print single row summary in ‘qstat’ style.</td>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.EligibilityError.html#prisms_jobs.EligibilityError" title="prisms_jobs.EligibilityError"><code class="xref py py-exc docutils literal"><span class="pre">prisms_jobs.EligibilityError</span></code></a> – If not job not eligible to be marked ‘Complete’</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.EligibilityError.html#prisms_jobs.EligibilityError" title="prisms_jobs.EligibilityError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">prisms_jobs.EligibilityError</span></code></a> – If not job not eligible to be marked ‘Complete’</p>
 </td>
 </tr>
 </tbody>
@@ -934,9 +872,7 @@ in ‘self.untracked’.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -945,7 +881,7 @@ in ‘self.untracked’.</p>
         <a href="prisms_jobs.JobsError.html" class="btn btn-neutral float-right" title="prisms_jobs.JobsError" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="prisms_jobs.Job.html" class="btn btn-neutral" title="prisms_jobs.Job" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="prisms_jobs.Job.html" class="btn btn-neutral float-left" title="prisms_jobs.Job" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -954,11 +890,11 @@ in ‘self.untracked’.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -971,36 +907,15 @@ in ‘self.untracked’.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

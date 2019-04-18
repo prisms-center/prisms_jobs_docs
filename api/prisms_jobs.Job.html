@@ -17,43 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
-        <link rel="up" title="prisms_jobs documentation" href="index.html"/>
-        <link rel="next" title="prisms_jobs.JobDB" href="prisms_jobs.JobDB.html"/>
-        <link rel="prev" title="prisms_jobs documentation" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="prisms_jobs.JobDB" href="prisms_jobs.JobDB.html" />
+    <link rel="prev" title="prisms_jobs documentation" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -126,7 +119,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">prisms-jobs</a>
@@ -134,9 +127,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -184,8 +178,8 @@
 <h1>prisms_jobs.Job<a class="headerlink" href="#prisms-jobs-job" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="prisms_jobs.Job">
-<em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">Job</code><span class="sig-paren">(</span><em>name=u'STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message=u'a'</em>, <em>email=None</em>, <em>priority=u'0'</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">future.types.newobject.newobject</span></code></p>
+<em class="property">class </em><code class="descclassname">prisms_jobs.</code><code class="descname">Job</code><span class="sig-paren">(</span><em>name='STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message='a'</em>, <em>email=None</em>, <em>priority='0'</em>, <em>constraint=None</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Represents a computational job</p>
 <p>Initialize either with all the parameters, or with ‘substr’ a submit script as a string.
 If ‘substr’ is given, all other arguments are ignored.</p>
@@ -195,30 +189,30 @@ If ‘substr’ is given, all other arguments are ignored.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>substr</strong> (<em>str</em>) – A submit script as a string.</li>
-<li><strong>name</strong> (<em>str</em>) – <p>Job name. Ex: <code class="docutils literal"><span class="pre">&quot;myjob-0&quot;</span></code></p>
+<li><strong>name</strong> (<em>str</em>) – <p>Job name. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;myjob-0&quot;</span></code></p>
 <p>The name specified may be up to and including 15 characters
 in length. It must consist of printable, non white space characters
 with the first character alphabetic.</p>
 </li>
-<li><strong>account</strong> (<em>str</em>) – Account name. Ex: <code class="docutils literal"><span class="pre">&quot;prismsproject_fluxoe&quot;</span></code></li>
+<li><strong>account</strong> (<em>str</em>) – Account name. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;prismsproject_fluxoe&quot;</span></code></li>
 <li><strong>nodes</strong> (<em>int</em>) – Number of nodes. Ex: 2</li>
 <li><strong>ppn</strong> (<em>int</em>) – Processors per node. Ex: 16</li>
-<li><strong>walltime</strong> (<em>str</em>) – Walltime (<code class="docutils literal"><span class="pre">HH:MM:SS</span></code>). Ex: <code class="docutils literal"><span class="pre">&quot;10:00:00&quot;</span></code></li>
-<li><strong>pmem</strong> (<em>str</em>) – Memory requsted. Ex: <code class="docutils literal"><span class="pre">&quot;3800mb&quot;</span></code></li>
-<li><strong>qos</strong> (<em>str</em>) – Ex: <code class="docutils literal"><span class="pre">&quot;flux&quot;</span></code></li>
-<li><strong>queue</strong> (<em>str</em>) – Ex: <code class="docutils literal"><span class="pre">&quot;fluxoe&quot;</span></code></li>
-<li><strong>exetime</strong> (<em>str</em>) – <p>Time after which the job is eligible for execution. Ex: <code class="docutils literal"><span class="pre">&quot;1100&quot;</span></code></p>
-<p>Has the form: <code class="docutils literal"><span class="pre">[[[[CC]YY]MM]DD]hhmm[.SS]</span></code>
-Create using <code class="docutils literal"><span class="pre">prisms_jobs.misc.exetime(deltatime)</span></code>, where deltatime
-is a <code class="docutils literal"><span class="pre">[[[DD:]MM:]HH:]SS</span></code> string.</p>
+<li><strong>walltime</strong> (<em>str</em>) – Walltime (<code class="docutils literal notranslate"><span class="pre">HH:MM:SS</span></code>). Ex: <code class="docutils literal notranslate"><span class="pre">&quot;10:00:00&quot;</span></code></li>
+<li><strong>pmem</strong> (<em>str</em>) – Memory requsted. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;3800mb&quot;</span></code></li>
+<li><strong>qos</strong> (<em>str</em>) – Ex: <code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code></li>
+<li><strong>queue</strong> (<em>str</em>) – Ex: <code class="docutils literal notranslate"><span class="pre">&quot;fluxoe&quot;</span></code></li>
+<li><strong>exetime</strong> (<em>str</em>) – <p>Time after which the job is eligible for execution. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;1100&quot;</span></code></p>
+<p>Has the form: <code class="docutils literal notranslate"><span class="pre">[[[[CC]YY]MM]DD]hhmm[.SS]</span></code>
+Create using <code class="docutils literal notranslate"><span class="pre">prisms_jobs.misc.exetime(deltatime)</span></code>, where deltatime
+is a <code class="docutils literal notranslate"><span class="pre">[[[DD:]MM:]HH:]SS</span></code> string.</p>
 </li>
-<li><strong>message</strong> (<em>str</em>) – <p>When to send email about the job. Ex: <code class="docutils literal"><span class="pre">&quot;abe&quot;</span></code></p>
+<li><strong>message</strong> (<em>str</em>) – <p>When to send email about the job. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;abe&quot;</span></code></p>
 <p>The mail_options argument is a string which consists of either the single
-character <code class="docutils literal"><span class="pre">&quot;n&quot;</span></code>, or one or more of the characters <code class="docutils literal"><span class="pre">&quot;a&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;b&quot;</span></code>,
-and <code class="docutils literal"><span class="pre">&quot;e&quot;</span></code>.</p>
-<p>If the character <code class="docutils literal"><span class="pre">&quot;n&quot;</span></code> is specified, no normal mail is sent. Mail for job
+character <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code>, or one or more of the characters <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code>.</p>
+<p>If the character <code class="docutils literal notranslate"><span class="pre">&quot;n&quot;</span></code> is specified, no normal mail is sent. Mail for job
 cancels and other events outside of normal job processing are still sent.</p>
-<p>For the letters <code class="docutils literal"><span class="pre">&quot;a&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;b&quot;</span></code>, and <code class="docutils literal"><span class="pre">&quot;e&quot;</span></code>:</p>
+<p>For the letters <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;e&quot;</span></code>:</p>
 <blockquote>
 <div><table border="1" class="docutils">
 <colgroup>
@@ -239,12 +233,12 @@ cancels and other events outside of normal job processing are still sent.</p>
 </table>
 </div></blockquote>
 </li>
-<li><strong>email</strong> (<em>str</em>) – <p>Where to send notifications.  Ex: <code class="docutils literal"><span class="pre">&quot;jdoe&#64;umich.edu&quot;</span></code></p>
-<p>The email string is of the form: <code class="docutils literal"><span class="pre">user[&#64;host][,user[&#64;host],...]</span></code></p>
+<li><strong>email</strong> (<em>str</em>) – <p>Where to send notifications.  Ex: <code class="docutils literal notranslate"><span class="pre">&quot;jdoe&#64;umich.edu&quot;</span></code></p>
+<p>The email string is of the form: <code class="docutils literal notranslate"><span class="pre">user[&#64;host][,user[&#64;host],...]</span></code></p>
 </li>
-<li><strong>priority</strong> (<em>str</em>) – Priority ranges from (low) -1024 to (high) 1023. Ex: <code class="docutils literal"><span class="pre">&quot;-200&quot;</span></code></li>
-<li><strong>command</strong> (<em>str</em>) – String with command to run by script. Ex: <code class="docutils literal"><span class="pre">&quot;echo</span> <span class="pre">&quot;hello&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.txt&quot;</span></code></li>
-<li><strong>auto</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>Default=False</em>) – <p>Indicates an automatically re-submitting job.  Ex: <code class="docutils literal"><span class="pre">True</span></code></p>
+<li><strong>priority</strong> (<em>str</em>) – Priority ranges from (low) -1024 to (high) 1023. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;-200&quot;</span></code></li>
+<li><strong>command</strong> (<em>str</em>) – String with command to run by script. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;echo</span> <span class="pre">&quot;hello&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.txt&quot;</span></code></li>
+<li><strong>auto</strong> (<em>bool</em><em>, </em><em>optional</em><em>, </em><em>Default=False</em>) – <p>Indicates an automatically re-submitting job.  Ex: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
 <p>Only set to True if the command uses this prisms_jobs module to set
 itself as completed when it is completed. Otherwise, you may submit
 it extra times leading to wasted resources and overwritten data.</p>
@@ -257,91 +251,218 @@ it extra times leading to wasted resources and overwritten data.</p>
 <dl class="attribute">
 <dt id="prisms_jobs.Job.name">
 <code class="descname">name</code><a class="headerlink" href="#prisms_jobs.Job.name" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Job name. Ex: <code class="docutils literal"><span class="pre">&quot;myjob-0&quot;</span></code></p>
+<dd><p>Job name. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;myjob-0&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.account">
 <code class="descname">account</code><a class="headerlink" href="#prisms_jobs.Job.account" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Account name. Ex: <code class="docutils literal"><span class="pre">&quot;prismsproject_fluxoe&quot;</span></code></p>
+<dd><p>Account name. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;prismsproject_fluxoe&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.nodes">
 <code class="descname">nodes</code><a class="headerlink" href="#prisms_jobs.Job.nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> – Number of nodes. Ex: 2</p>
+<dd><p>Number of nodes. Ex: 2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.ppn">
 <code class="descname">ppn</code><a class="headerlink" href="#prisms_jobs.Job.ppn" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> – Processors per node. Ex: 16</p>
+<dd><p>Processors per node. Ex: 16</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.walltime">
 <code class="descname">walltime</code><a class="headerlink" href="#prisms_jobs.Job.walltime" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Walltime (<code class="docutils literal"><span class="pre">HH:MM:SS</span></code>). Ex: <code class="docutils literal"><span class="pre">&quot;10:00:00&quot;</span></code></p>
+<dd><p>Walltime (<code class="docutils literal notranslate"><span class="pre">HH:MM:SS</span></code>). Ex: <code class="docutils literal notranslate"><span class="pre">&quot;10:00:00&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.pmem">
 <code class="descname">pmem</code><a class="headerlink" href="#prisms_jobs.Job.pmem" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Memory requsted. Ex: <code class="docutils literal"><span class="pre">&quot;3800mb&quot;</span></code></p>
+<dd><p>Memory requsted. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;3800mb&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.qos">
 <code class="descname">qos</code><a class="headerlink" href="#prisms_jobs.Job.qos" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Ex: <code class="docutils literal"><span class="pre">&quot;flux&quot;</span></code></p>
+<dd><p>Ex: <code class="docutils literal notranslate"><span class="pre">&quot;flux&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.queue">
 <code class="descname">queue</code><a class="headerlink" href="#prisms_jobs.Job.queue" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Ex: <code class="docutils literal"><span class="pre">&quot;fluxoe&quot;</span></code></p>
+<dd><p>Ex: <code class="docutils literal notranslate"><span class="pre">&quot;fluxoe&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.exetime">
 <code class="descname">exetime</code><a class="headerlink" href="#prisms_jobs.Job.exetime" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Time after which the job is eligible for execution. Ex: <code class="docutils literal"><span class="pre">&quot;1100&quot;</span></code></p>
+<dd><p>Time after which the job is eligible for execution. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;1100&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.message">
 <code class="descname">message</code><a class="headerlink" href="#prisms_jobs.Job.message" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – When to send email about the job. Ex: <code class="docutils literal"><span class="pre">&quot;abe&quot;</span></code></p>
+<dd><p>When to send email about the job. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;abe&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.email">
 <code class="descname">email</code><a class="headerlink" href="#prisms_jobs.Job.email" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Where to send notifications.  Ex: <code class="docutils literal"><span class="pre">&quot;jdoe&#64;umich.edu&quot;</span></code></p>
+<dd><p>Where to send notifications.  Ex: <code class="docutils literal notranslate"><span class="pre">&quot;jdoe&#64;umich.edu&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.priority">
 <code class="descname">priority</code><a class="headerlink" href="#prisms_jobs.Job.priority" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – Priority ranges from (low) -1024 to (high) 1023. Ex: <code class="docutils literal"><span class="pre">&quot;-200&quot;</span></code></p>
+<dd><p>Priority ranges from (low) -1024 to (high) 1023. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;-200&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="prisms_jobs.Job.constraint">
+<code class="descname">constraint</code><a class="headerlink" href="#prisms_jobs.Job.constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constraint. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;haswell&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.command">
 <code class="descname">command</code><a class="headerlink" href="#prisms_jobs.Job.command" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> – String with command to run by script. Ex: <code class="docutils literal"><span class="pre">&quot;echo</span> <span class="pre">&quot;hello&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.txt&quot;</span></code></p>
+<dd><p>String with command to run by script. Ex: <code class="docutils literal notranslate"><span class="pre">&quot;echo</span> <span class="pre">&quot;hello&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.txt&quot;</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="prisms_jobs.Job.auto">
 <code class="descname">auto</code><a class="headerlink" href="#prisms_jobs.Job.auto" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> – Indicates an automatically re-submitting job.  Ex: <code class="docutils literal"><span class="pre">True</span></code></p>
+<dd><p>Indicates an automatically re-submitting job.  Ex: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="prisms_jobs.Job.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>name=u'STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message=u'a'</em>, <em>email=None</em>, <em>priority=u'0'</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.__init__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>name='STDIN'</em>, <em>account=None</em>, <em>nodes=None</em>, <em>ppn=None</em>, <em>walltime=None</em>, <em>pmem=None</em>, <em>qos=None</em>, <em>queue=None</em>, <em>exetime=None</em>, <em>message='a'</em>, <em>email=None</em>, <em>priority='0'</em>, <em>constraint=None</em>, <em>command=None</em>, <em>auto=False</em>, <em>substr=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
 
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
@@ -350,80 +471,23 @@ it extra times leading to wasted resources and overwritten data.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.__init__" title="prisms_jobs.Job.__init__"><code class="xref py py-obj docutils literal"><span class="pre">__init__</span></code></a>([name,&nbsp;account,&nbsp;nodes,&nbsp;ppn,&nbsp;…])</td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.__init__" title="prisms_jobs.Job.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>([name,&nbsp;account,&nbsp;nodes,&nbsp;ppn,&nbsp;…])</td>
+<td>Initialize self.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.Job.read" title="prisms_jobs.Job.read"><code class="xref py py-obj docutils literal"><span class="pre">read</span></code></a>(qsubstr)</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.Job.read" title="prisms_jobs.Job.read"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read</span></code></a>(qsubstr)</td>
 <td>Set this Job object from string representing a submit script appropriate for the config.software().</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.script" title="prisms_jobs.Job.script"><code class="xref py py-obj docutils literal"><span class="pre">script</span></code></a>([filename])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.script" title="prisms_jobs.Job.script"><code class="xref py py-obj docutils literal notranslate"><span class="pre">script</span></code></a>([filename])</td>
 <td>Write this Job as a bash script</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.Job.sub_string" title="prisms_jobs.Job.sub_string"><code class="xref py py-obj docutils literal"><span class="pre">sub_string</span></code></a>()</td>
+<tr class="row-even"><td><a class="reference internal" href="#prisms_jobs.Job.sub_string" title="prisms_jobs.Job.sub_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sub_string</span></code></a>()</td>
 <td>Output Job as a string suitable for prisms_jobs.config.software()</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.submit" title="prisms_jobs.Job.submit"><code class="xref py py-obj docutils literal"><span class="pre">submit</span></code></a>([add,&nbsp;dbpath])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#prisms_jobs.Job.submit" title="prisms_jobs.Job.submit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">submit</span></code></a>([add,&nbsp;dbpath])</td>
 <td>Submit this Job using the appropriate command for prisms_jobs.config.software().</td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__delattr__">
-<code class="descname">__delattr__</code><a class="headerlink" href="#prisms_jobs.Job.__delattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__delattr__(‘name’) &lt;==&gt; del x.name</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__format__">
-<code class="descname">__format__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__format__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default object formatter</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__getattribute__">
-<code class="descname">__getattribute__</code><a class="headerlink" href="#prisms_jobs.Job.__getattribute__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__getattribute__(‘name’) &lt;==&gt; x.name</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__hash__">
-<code class="descname">__hash__</code><a class="headerlink" href="#prisms_jobs.Job.__hash__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__reduce__">
-<code class="descname">__reduce__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__reduce__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__reduce_ex__">
-<code class="descname">__reduce_ex__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prisms_jobs.Job.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__repr__">
-<code class="descname">__repr__</code><a class="headerlink" href="#prisms_jobs.Job.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__setattr__">
-<code class="descname">__setattr__</code><a class="headerlink" href="#prisms_jobs.Job.__setattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>x.__setattr__(‘name’, value) &lt;==&gt; x.name = value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="prisms_jobs.Job.__sizeof__">
-<code class="descname">__sizeof__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#prisms_jobs.Job.__sizeof__" title="Permalink to this definition">¶</a></dt>
-<dd><p>size of object in memory, in bytes</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="prisms_jobs.Job.__str__">
-<code class="descname">__str__</code><a class="headerlink" href="#prisms_jobs.Job.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="prisms_jobs.Job.read">
 <code class="descname">read</code><span class="sig-paren">(</span><em>qsubstr</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.read" title="Permalink to this definition">¶</a></dt>
@@ -441,7 +505,7 @@ for the config.software().</p>
 
 <dl class="method">
 <dt id="prisms_jobs.Job.script">
-<code class="descname">script</code><span class="sig-paren">(</span><em>filename=u'submit.sh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.script"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.script" title="Permalink to this definition">¶</a></dt>
+<code class="descname">script</code><span class="sig-paren">(</span><em>filename='submit.sh'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/prisms_jobs/job.html#Job.script"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#prisms_jobs.Job.script" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write this Job as a bash script</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -473,7 +537,7 @@ for the config.software().</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.JobsError.html#prisms_jobs.JobsError" title="prisms_jobs.JobsError"><code class="xref py py-exc docutils literal"><span class="pre">prisms_jobs.JobsError</span></code></a> – If error submitting the job.</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="prisms_jobs.JobsError.html#prisms_jobs.JobsError" title="prisms_jobs.JobsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">prisms_jobs.JobsError</span></code></a> – If error submitting the job.</p>
 </td>
 </tr>
 </tbody>
@@ -486,9 +550,7 @@ for the config.software().</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -497,7 +559,7 @@ for the config.software().</p>
         <a href="prisms_jobs.JobDB.html" class="btn btn-neutral float-right" title="prisms_jobs.JobDB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="prisms_jobs documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="prisms_jobs documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -506,11 +568,11 @@ for the config.software().</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -523,36 +585,15 @@ for the config.software().</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

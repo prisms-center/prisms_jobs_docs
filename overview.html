@@ -17,42 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="index.html"/>
-        <link rel="next" title="Installation" href="install.html"/>
-        <link rel="prev" title="Welcome to prisms-jobs’s documentation!" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="install.html" />
+    <link rel="prev" title="Welcome to prisms-jobs’s documentation!" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -109,7 +103,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">prisms-jobs</a>
@@ -117,9 +111,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -163,11 +158,11 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>When submitted through the <code class="docutils literal"><span class="pre">prisms_jobs</span></code> Python package or the included scripts,
+<p>When submitted through the <code class="docutils literal notranslate"><span class="pre">prisms_jobs</span></code> Python package or the included scripts,
 cluster jobs are stored in a SQLite jobs database. This allows for convenient
 monitoring and searching of submitted jobs.</p>
 <p>It is often necessary to submit multiple jobs until a particular task is complete,
-whether due to walltime or other limitations. <code class="docutils literal"><span class="pre">prisms-jobs</span></code> distinguishes and
+whether due to walltime or other limitations. <code class="docutils literal notranslate"><span class="pre">prisms-jobs</span></code> distinguishes and
 tracks both individual “jobstatus” (‘R’, ‘Q’, ‘C’, ‘E’, etc.) and “taskstatus”.
 Jobs marked as ‘auto’ can be automatically or easily resubmitted until the
 “taskstatus” is “Complete”.</p>
@@ -199,15 +194,15 @@ input for status.</td>
 </tr>
 </tbody>
 </table>
-<p>Jobs are marked ‘auto’ either by submitting through the python class <code class="docutils literal"><span class="pre">prisms_jobs.Job</span></code>
-with the attribute <code class="docutils literal"><span class="pre">auto=True</span></code>, or by submitting a script which contains
-the line <code class="docutils literal"><span class="pre">#auto=True</span></code> using the included <code class="docutils literal"><span class="pre">psub</span></code> command line program.</p>
-<p>Jobs can be monitored using the command line program <code class="docutils literal"><span class="pre">pstat</span></code>. All ‘auto’ jobs
-which have stopped can be resubmitted using <code class="docutils literal"><span class="pre">pstat</span> <span class="pre">--continue</span></code>. In this case,
+<p>Jobs are marked ‘auto’ either by submitting through the python class <code class="docutils literal notranslate"><span class="pre">prisms_jobs.Job</span></code>
+with the attribute <code class="docutils literal notranslate"><span class="pre">auto=True</span></code>, or by submitting a script which contains
+the line <code class="docutils literal notranslate"><span class="pre">#auto=True</span></code> using the included <code class="docutils literal notranslate"><span class="pre">psub</span></code> command line program.</p>
+<p>Jobs can be monitored using the command line program <code class="docutils literal notranslate"><span class="pre">pstat</span></code>. All ‘auto’ jobs
+which have stopped can be resubmitted using <code class="docutils literal notranslate"><span class="pre">pstat</span> <span class="pre">--continue</span></code>. In this case,
 ‘continuation_jobid’ is set with the jobid for the next job in the series of jobs
 comprising a task.</p>
 <p>Example screen shot:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ pstat
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pstat
 
 
 Tracked:
@@ -224,23 +219,21 @@ JobID        JobName                  Nodes Procs     Walltime S      Runtime Ta
 </pre></div>
 </div>
 <p>Additionally, when scheduling periodic jobs is not allowed other ways, the
-<code class="docutils literal"><span class="pre">taskmaster</span></code> script can fully automate this process. <code class="docutils literal"><span class="pre">taskmaster</span></code> executes
-<code class="docutils literal"><span class="pre">pstat</span> <span class="pre">--continue</span></code> and then resubmits itself to execute again periodically. As
+<code class="docutils literal notranslate"><span class="pre">taskmaster</span></code> script can fully automate this process. <code class="docutils literal notranslate"><span class="pre">taskmaster</span></code> executes
+<code class="docutils literal notranslate"><span class="pre">pstat</span> <span class="pre">--continue</span></code> and then resubmits itself to execute again periodically. As
 not all compute resources allow this behavior, remember check the policy prior
-to using <code class="docutils literal"><span class="pre">taskmaster</span></code> on a new compute resource.</p>
+to using <code class="docutils literal notranslate"><span class="pre">taskmaster</span></code> on a new compute resource.</p>
 <p>A script marked ‘auto’ should check itself for completion and when reached execute
-<code class="docutils literal"><span class="pre">pstat</span> <span class="pre">--complete</span> <span class="pre">$JOBID</span> <span class="pre">--force</span></code> in bash, or <code class="docutils literal"><span class="pre">prisms_jobs.complete_job()</span></code>
+<code class="docutils literal notranslate"><span class="pre">pstat</span> <span class="pre">--complete</span> <span class="pre">$JOBID</span> <span class="pre">--force</span></code> in bash, or <code class="docutils literal notranslate"><span class="pre">prisms_jobs.complete_job()</span></code>
 in Python. If an ‘auto’ job script does not set its taskstatus to “Complete” it
 may continue to be resubmitted indefinitely.</p>
-<p>Jobs not marked ‘auto’ are shown with the status “Check” in <code class="docutils literal"><span class="pre">pstat</span></code> until the user
+<p>Jobs not marked ‘auto’ are shown with the status “Check” in <code class="docutils literal notranslate"><span class="pre">pstat</span></code> until the user
 marks them as “Complete”.</p>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -249,7 +242,7 @@ marks them as “Complete”.</p>
         <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to prisms-jobs’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to prisms-jobs’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -258,11 +251,11 @@ marks them as “Complete”.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -275,36 +268,15 @@ marks them as “Complete”.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

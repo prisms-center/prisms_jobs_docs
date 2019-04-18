@@ -17,41 +17,34 @@
   
 
   
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../../../index.html"/>
-        <link rel="up" title="prisms_jobs" href="../../prisms_jobs.html"/> 
-
-  
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -108,7 +101,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">prisms-jobs</a>
@@ -116,9 +109,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -150,8 +144,6 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-        
       </li>
     
   </ul>
@@ -179,6 +171,7 @@
 <span class="kn">from</span> <span class="nn">io</span> <span class="k">import</span> <span class="n">StringIO</span>
 
 <span class="c1">### Internal ###</span>
+<span class="kn">import</span> <span class="nn">prisms_jobs</span>
 <span class="kn">from</span> <span class="nn">prisms_jobs</span> <span class="k">import</span> <span class="n">JobsError</span>
 <span class="kn">from</span> <span class="nn">prisms_jobs.misc</span> <span class="k">import</span> <span class="n">getlogin</span><span class="p">,</span> <span class="n">run</span><span class="p">,</span> <span class="n">seconds</span>
 
@@ -257,7 +250,7 @@
 
 <div class="viewcode-block" id="sub_string"><a class="viewcode-back" href="../../../api/prisms_jobs.interface.slurm.html#prisms_jobs.interface.slurm.sub_string">[docs]</a><span class="k">def</span> <span class="nf">sub_string</span><span class="p">(</span><span class="n">job</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Write Job as a string suitable for slurm</span>
-<span class="sd">    </span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        prisms_jobs.Job: Job to be submitted</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -287,24 +280,26 @@
     <span class="c1"># jobstr += &quot;#SBATCH -N {0}\n&quot;.format(job.nodes)</span>
     <span class="k">if</span> <span class="n">job</span><span class="o">.</span><span class="n">queue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">jobstr</span> <span class="o">+=</span> <span class="s2">&quot;#SBATCH -p </span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">job</span><span class="o">.</span><span class="n">constraint</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">jobstr</span> <span class="o">+=</span> <span class="s2">&quot;#SBATCH --constraint=</span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">constraint</span><span class="p">)</span>
     <span class="n">jobstr</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="si">{0}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">command</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">jobstr</span></div>
 
 <div class="viewcode-block" id="job_id"><a class="viewcode-back" href="../../../api/prisms_jobs.interface.slurm.html#prisms_jobs.interface.slurm.job_id">[docs]</a><span class="k">def</span> <span class="nf">job_id</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>       <span class="c1">#pylint: disable=redefined-builtin</span>
     <span class="sd">&quot;&quot;&quot;Get job IDs</span>
-<span class="sd">    </span>
+
 <span class="sd">    Args:</span>
-<span class="sd">        all (bool): If True, use ``squeue`` to query all user jobs. Else, check </span>
+<span class="sd">        all (bool): If True, use ``squeue`` to query all user jobs. Else, check</span>
 <span class="sd">        ``SLURM_JOBID`` environment variable for ID of current job.</span>
-<span class="sd">        </span>
+
 <span class="sd">        name (str): If all==True, use name to filter results.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        One of str, List(str), or None:</span>
-<span class="sd">            Returns a str if all==False and ``SLURM_JOBID`` exists, a List(str) </span>
+<span class="sd">            Returns a str if all==False and ``SLURM_JOBID`` exists, a List(str)</span>
 <span class="sd">            if all==True,  else None.</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">all</span> <span class="ow">or</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">jobid</span> <span class="o">=</span> <span class="p">[]</span>
@@ -328,7 +323,7 @@
 <span class="sd">    Args:</span>
 <span class="sd">        jobid (str or List(str)):</span>
 <span class="sd">            IDs of jobs to get the run directory</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        dict:</span>
 <span class="sd">            A dict, with id:rundir pairs.</span>
@@ -354,11 +349,11 @@
 <span class="sd">            IDs of jobs to query for status. None for all user jobs.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">    </span>
+
 <span class="sd">        dict of dict:</span>
-<span class="sd">        </span>
+
 <span class="sd">            The outer dict uses jobid as key; the inner dict contains:</span>
-<span class="sd">       </span>
+
 <span class="sd">            ================    ======================================================</span>
 <span class="sd">            &quot;name&quot;              Job name</span>
 <span class="sd">            &quot;nodes&quot;             Number of nodes</span>
@@ -484,14 +479,14 @@
 
 <span class="sd">    Args:</span>
 <span class="sd">        substr (str): The submit script string</span>
-<span class="sd">        write_submit_script (bool, optional): If true, submit via file skipping  </span>
+<span class="sd">        write_submit_script (bool, optional): If true, submit via file skipping</span>
 <span class="sd">            lines containing &#39;#SBATCH -J&#39;; otherwise, submit via commandline. If</span>
 <span class="sd">            not specified, uses ``prisms_jobs.config[&#39;write_submit_script&#39;]``.</span>
-<span class="sd">            </span>
-<span class="sd">    </span>
+
+
 <span class="sd">    Returns:</span>
 <span class="sd">        str: ID of submitted job</span>
-<span class="sd">    </span>
+
 <span class="sd">    Raises:</span>
 <span class="sd">        JobsError: If a submission error occurs</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -503,10 +498,10 @@
         <span class="k">raise</span> <span class="n">JobsError</span><span class="p">(</span>
             <span class="kc">None</span><span class="p">,</span>
             <span class="sa">r</span><span class="sd">&quot;&quot;&quot;Error in pbs.misc.submit(). Jobname (&quot;#SBATCH\s+-J\s+(.*)\s&quot;) not found in submit string.&quot;&quot;&quot;</span><span class="p">)</span>
-    
+
     <span class="k">if</span> <span class="n">write_submit_script</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">write_submit_script</span> <span class="o">=</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;write_submit_script&#39;</span><span class="p">]</span>
-    
+        <span class="n">write_submit_script</span> <span class="o">=</span> <span class="n">prisms_jobs</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">write_submit_script</span><span class="p">()</span>
+
     <span class="k">if</span> <span class="n">write_submit_script</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">jobname</span><span class="p">):</span>
             <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
@@ -531,37 +526,37 @@
 
 <div class="viewcode-block" id="delete"><a class="viewcode-back" href="../../../api/prisms_jobs.interface.slurm.html#prisms_jobs.interface.slurm.delete">[docs]</a><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">jobid</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;``scancel`` a job.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        jobid (str): ID of job to cancel</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        int: ``scancel`` returncode</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">run</span><span class="p">([</span><span class="s2">&quot;scancel&quot;</span><span class="p">,</span> <span class="n">jobid</span><span class="p">])[</span><span class="mi">2</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="hold"><a class="viewcode-back" href="../../../api/prisms_jobs.interface.slurm.html#prisms_jobs.interface.slurm.hold">[docs]</a><span class="k">def</span> <span class="nf">hold</span><span class="p">(</span><span class="n">jobid</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;``scontrol`` delay a job.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        jobid (str): ID of job to delay (for 30days)</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        int: ``scontrol`` returncode</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">run</span><span class="p">([</span><span class="s2">&quot;scontrol&quot;</span><span class="p">,</span> <span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="s2">&quot;JobId=&quot;</span><span class="p">,</span> <span class="n">jobid</span><span class="p">,</span> <span class="s2">&quot;StartTime=&quot;</span><span class="p">,</span> <span class="s2">&quot;now+30days&quot;</span><span class="p">])[</span><span class="mi">2</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="release"><a class="viewcode-back" href="../../../api/prisms_jobs.interface.slurm.html#prisms_jobs.interface.slurm.release">[docs]</a><span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="n">jobid</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;``scontrol`` un-delay a job.</span>
-<span class="sd">    </span>
+
 <span class="sd">    Args:</span>
 <span class="sd">        jobid (str): ID of job to release</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        int: ``scontrol`` returncode</span>
-<span class="sd">    </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">run</span><span class="p">([</span><span class="s2">&quot;scontrol&quot;</span><span class="p">,</span> <span class="s2">&quot;update&quot;</span><span class="p">,</span> <span class="s2">&quot;JobId=&quot;</span><span class="p">,</span> <span class="n">jobid</span><span class="p">,</span> <span class="s2">&quot;StartTime=&quot;</span><span class="p">,</span> <span class="s2">&quot;now&quot;</span><span class="p">])[</span><span class="mi">2</span><span class="p">]</span></div>
 
@@ -571,7 +566,7 @@
 <span class="sd">    Args:</span>
 <span class="sd">        jobid (str): ID of job to alter</span>
 <span class="sd">        arg (str): &#39;arg&#39; is a scontrol command option string. For instance, &quot;-a 201403152300.19&quot;</span>
-<span class="sd">    </span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        int: ``scontrol`` returncode</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -580,13 +575,10 @@
 <div class="viewcode-block" id="read"><a class="viewcode-back" href="../../../api/prisms_jobs.interface.slurm.html#prisms_jobs.interface.slurm.read">[docs]</a><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">job</span><span class="p">,</span> <span class="n">qsubstr</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Raise exception&quot;&quot;&quot;</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;primsms_jobs.read is not yet implemented for Slurm&quot;</span><span class="p">)</span></div>
-
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -595,11 +587,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -612,36 +604,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

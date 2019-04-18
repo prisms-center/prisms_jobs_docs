@@ -17,42 +17,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="index.html"/>
-        <link rel="next" title="prisms_jobs documentation" href="api/index.html"/>
-        <link rel="prev" title="Installation" href="install.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="prisms_jobs documentation" href="api/index.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -109,7 +103,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">prisms-jobs</a>
@@ -117,9 +111,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -165,23 +160,23 @@
 <h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>Some configuration is possible:</p>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR</span></code>: (optional, default=``$HOME/.prisms_jobs``)</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">PRISMS_JOBS_DIR</span></code>: (optional, default=``$HOME/.prisms_jobs``)</p>
 <blockquote>
-<div><p>The jobs database is stored at <code class="docutils literal"><span class="pre">$PBS_JOB_DIR/jobs.db</span></code>.</p>
+<div><p>The jobs database is stored at <code class="docutils literal notranslate"><span class="pre">$PBS_JOB_DIR/jobs.db</span></code>.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR/config.json</span></code>:</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">PRISMS_JOBS_DIR/config.json</span></code>:</p>
 <blockquote>
 <div><p>Automatically generated JSON configuration file storing settings:</p>
 <ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">&quot;dbpath&quot;</span></code>: (str)</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;dbpath&quot;</span></code>: (str)</p>
 <blockquote>
 <div><p>The location of the SQLite jobs database.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">&quot;software&quot;</span></code>: (str)</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;software&quot;</span></code>: (str)</p>
 <blockquote>
-<div><p>The job submission software interface to use. <code class="docutils literal"><span class="pre">&quot;torque&quot;</span></code> or <code class="docutils literal"><span class="pre">&quot;slurm&quot;</span></code>
+<div><p>The job submission software interface to use. <code class="docutils literal notranslate"><span class="pre">&quot;torque&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;slurm&quot;</span></code>
 is automatically detected if present.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -206,14 +201,14 @@ implementing an interface</td>
 </table>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">&quot;write_submit_script&quot;</span></code>: (bool, optional, default=false)</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;write_submit_script&quot;</span></code>: (bool, optional, default=false)</p>
 <blockquote>
-<div><p>If <code class="docutils literal"><span class="pre">true</span></code>, submit jobs by first writing a submit script file and then
+<div><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, submit jobs by first writing a submit script file and then
 submitting it. Otherwise, by default, the job is submitted via the command
 line.</p>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">&quot;update_method&quot;</span></code>: (str, optional, default=”default”)</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;update_method&quot;</span></code>: (str, optional, default=”default”)</p>
 <blockquote>
 <div><p>Controls which jobs are updated when JobDB.update() is called.</p>
 <table border="1" class="docutils">
@@ -229,13 +224,13 @@ line.</p>
 <td>Select jobs with jobstatus != ‘C’ and matching
 hostname. This is useful on compute clusters
 where multiple machines with different queues
-share the same <code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR</span></code>.</td>
+share the same <code class="docutils literal notranslate"><span class="pre">PRISMS_JOBS_DIR</span></code>.</td>
 </tr>
 </tbody>
 </table>
 </div></blockquote>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">&quot;taskmaster_job_kwargs&quot;</span></code>: (JSON object, optional)</p>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;taskmaster_job_kwargs&quot;</span></code>: (JSON object, optional)</p>
 <blockquote>
 <div><p>Holds options for the <a class="reference external" href="scripts/taskmaster.html">taskmaster</a> job. Defaults are:</p>
 <table border="1" class="docutils">
@@ -285,9 +280,9 @@ share the same <code class="docutils literal"><span class="pre">PRISMS_JOBS_DIR<
 </tr>
 </tbody>
 </table>
-<p>Additionally, the <code class="docutils literal"><span class="pre">'exetime'</span></code> is set based on the <code class="docutils literal"><span class="pre">--delay</span></code>
+<p>Additionally, the <code class="docutils literal notranslate"><span class="pre">'exetime'</span></code> is set based on the <code class="docutils literal notranslate"><span class="pre">--delay</span></code>
 commandline argument and the commandline invocation used to launch
-<code class="docutils literal"><span class="pre">taskmaster</span></code> is appended to <code class="docutils literal"><span class="pre">'command'</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">taskmaster</span></code> is appended to <code class="docutils literal notranslate"><span class="pre">'command'</span></code>.</p>
 </div></blockquote>
 </li>
 </ul>
@@ -298,9 +293,7 @@ commandline argument and the commandline invocation used to launch
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -309,7 +302,7 @@ commandline argument and the commandline invocation used to launch
         <a href="api/index.html" class="btn btn-neutral float-right" title="prisms_jobs documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -318,11 +311,11 @@ commandline argument and the commandline invocation used to launch
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -335,36 +328,15 @@ commandline argument and the commandline invocation used to launch
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

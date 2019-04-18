@@ -17,43 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="prisms-jobs 4.0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Command line scripts documentation" href="index.html"/>
-        <link rel="next" title="psub" href="psub.html"/>
-        <link rel="prev" title="Command line scripts documentation" href="index.html"/> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="psub" href="psub.html" />
+    <link rel="prev" title="Command line scripts documentation" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -97,17 +90,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../config.html">Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">prisms_jobs documentation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Command line scripts documentation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal"><span class="pre">pstat</span></code></a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">pstat</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#summary">Summary:</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#help-documentation"><code class="docutils literal"><span class="pre">--help</span></code> documentation:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#help-documentation"><code class="docutils literal notranslate"><span class="pre">--help</span></code> documentation:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Positional Arguments">Positional Arguments</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Named Arguments">Named Arguments</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="psub.html"><code class="docutils literal"><span class="pre">psub</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="taskmaster.html"><code class="docutils literal"><span class="pre">taskmaster</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="psub.html"><code class="docutils literal notranslate"><span class="pre">psub</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="taskmaster.html"><code class="docutils literal notranslate"><span class="pre">taskmaster</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Getting help</a></li>
@@ -123,7 +116,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">prisms-jobs</a>
@@ -131,9 +124,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -158,7 +152,7 @@
         
           <li><a href="index.html">Command line scripts documentation</a> &raquo;</li>
         
-      <li><code class="docutils literal"><span class="pre">pstat</span></code></li>
+      <li><code class="docutils literal notranslate"><span class="pre">pstat</span></code></li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -178,17 +172,17 @@
            <div itemprop="articleBody">
             
   <div class="section" id="pstat">
-<h1><code class="docutils literal"><span class="pre">pstat</span></code><a class="headerlink" href="#pstat" title="Permalink to this headline">¶</a></h1>
+<h1><code class="docutils literal notranslate"><span class="pre">pstat</span></code><a class="headerlink" href="#pstat" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="summary">
 <h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">pstat</span></code> gives command line access to the jobs database. It can be used to:</p>
+<p><code class="docutils literal notranslate"><span class="pre">pstat</span></code> gives command line access to the jobs database. It can be used to:</p>
 <ul class="simple">
 <li>List job info by:<ul>
 <li>Job id</li>
 <li>Modification time</li>
 <li>If still active</li>
 <li>Database column and regex<ul>
-<li>Possible columns can be determined from the <code class="docutils literal"><span class="pre">-f</span></code> output</li>
+<li>Possible columns can be determined from the <code class="docutils literal notranslate"><span class="pre">-f</span></code> output</li>
 </ul>
 </li>
 <li>Grouped series of continuation jobs, or ungrouped</li>
@@ -202,8 +196,57 @@
 </ul>
 </div>
 <div class="section" id="help-documentation">
-<h2><code class="docutils literal"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">pstat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">|</span> <span class="o">-</span><span class="n">s</span><span class="p">]</span>
+<h2><code class="docutils literal notranslate"><span class="pre">--help</span></code> documentation:<a class="headerlink" href="#help-documentation" title="Permalink to this headline">¶</a></h2>
+<p><p>Print or modify <cite>prisms-jobs</cite> job and task status.</p>
+<p>By default, ‘pstat’ prints status for select jobs. Jobs are
+selected by listing jobids or using –all, –range, or
+–recent, optionally combined with –active. Running ‘pstat’
+with no selection is equivalent to selecting ‘–all –active’.
+The default display style is a summary list. Other options are
+–full or –series.</p>
+<p>Using one of –complete, –continue, –error, –abort, or
+–delete modifies status instead of printing. User
+confirmation is required before a modification is applied,
+unless the –force option is given.</p>
+<p>Job status is as given by <cite>prisms-jobs</cite> for a single job (‘C’, ‘R’,
+‘Q’, etc.).</p>
+<p>Task status is user-defined and defines the status of a single
+job within a possible series of jobs comprising some task.
+‘Auto’ jobs may be re-submitted with the –continue option.</p>
+<p>Jobs are marked ‘auto’ either by submitting through the python 
+class <code class="docutils literal notranslate"><span class="pre">prisms_jobs.Job</span></code> with the attribute <code class="docutils literal notranslate"><span class="pre">auto=True</span></code>, or 
+by submitting a script which contains the line <code class="docutils literal notranslate"><span class="pre">#auto=True</span></code> 
+via <code class="docutils literal notranslate"><span class="pre">psub</span></code>.</p>
+<p>Possible values for task status are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>”Complete”</td>
+<td>Job and task are complete.</td>
+</tr>
+<tr class="row-even"><td>”Incomplete”</td>
+<td>Job or task are incomplete.</td>
+</tr>
+<tr class="row-odd"><td>”Continued”</td>
+<td>Job is complete, but task was not complete.</td>
+</tr>
+<tr class="row-even"><td>”Check”</td>
+<td>Non-auto job is complete and requires user
+input for status.</td>
+</tr>
+<tr class="row-odd"><td>”Error:.*”</td>
+<td>Some kind of error was noted.</td>
+</tr>
+<tr class="row-even"><td>”Aborted”</td>
+<td>The job and task have been aborted.</td>
+</tr>
+</tbody>
+</table>
+</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">pstat</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">|</span> <span class="o">-</span><span class="n">s</span><span class="p">]</span>
              <span class="p">[</span><span class="o">-</span><span class="n">a</span> <span class="o">|</span> <span class="o">--</span><span class="nb">range</span> <span class="n">MINID</span> <span class="n">MAXID</span> <span class="o">|</span> <span class="o">--</span><span class="n">recent</span> <span class="n">DD</span><span class="p">:</span><span class="n">HH</span><span class="p">:</span><span class="n">MM</span><span class="p">:</span><span class="n">SS</span> <span class="o">|</span> <span class="o">--</span><span class="n">regex</span> <span class="n">KEY</span> <span class="n">REGEX</span><span class="p">]</span>
              <span class="p">[</span><span class="o">--</span><span class="n">active</span><span class="p">]</span>
              <span class="p">[</span><span class="o">--</span><span class="n">complete</span> <span class="o">|</span> <span class="o">--</span><span class="k">continue</span> <span class="o">|</span> <span class="o">--</span><span class="n">reset</span> <span class="o">|</span> <span class="o">--</span><span class="n">abort</span> <span class="o">|</span> <span class="o">--</span><span class="n">error</span> <span class="n">ERRMSG</span> <span class="o">|</span> <span class="o">--</span><span class="n">delete</span> <span class="o">|</span> <span class="o">--</span><span class="n">key</span> <span class="n">KEY</span><span class="p">]</span>
@@ -302,9 +345,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -313,7 +354,7 @@
         <a href="psub.html" class="btn btn-neutral float-right" title="psub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Command line scripts documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Command line scripts documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -322,11 +363,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, PRISMS Center and CASM Developers.
+        &copy; Copyright 2017, PRISMS Center and CASM Developers
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -339,36 +380,15 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'4.0.1',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
